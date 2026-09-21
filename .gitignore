@@ -1,0 +1,16 @@
+# Thư mục thư viện Node.js (BẮT BUỘC bỏ qua, thư mục này rất nặng)
+node_modules/
+
+# File log khi cài đặt gói bằng npm
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# File hệ điều hành sinh ra
+.DS_Store
+Thumbs.db
+
+# Cấu hình IDE cá nhân
+.vscode/
+.idea/
