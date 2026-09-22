@@ -3,9 +3,9 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Sign up</title>
-        <link rel="stylesheet" href="../src/css/input.css" />
-        <link rel="stylesheet" href="../src/css/output.css" />
+        <title>Sign in</title>
+        <link rel="stylesheet" href="./src/css/input.css" />
+        <link rel="stylesheet" href="./src/css/output.css" />
     </head>
     <body class="h-full">
         <main class="grid grid-cols-1 lg:grid-cols-2 h-full">
@@ -28,23 +28,15 @@
             </div>
             <div class="flex-col flex justify-center px-5 lg:px-20 xl:px-40">
                 <div>
-                    <p class="text-sm text-neutral-500">Hello there! 👋</p>
-                    <h1 class="mt-1 text-zinc-800 text-xl font-bold">Create account</h1>
+                    <p class="text-sm text-neutral-500">Welcome back! 👋</p>
+                    <h1 class="mt-1 text-zinc-800 text-xl font-bold">Sign in to your account</h1>
                 </div>
 
-                <form id="form" class="mt-7.5 flex flex-col gap-y-2.5" method="post">
-                    <div>
-                        <label class="text-zinc-800 text-xs font-semibold">Username</label>
-                        <div class="h-11 border-zinc-300 mt-1 rounded-sm border text-neutral-500 flex items-center">
-                            <input id="username" name="username" placeholder="Please enter your username" class="rounded-sm placeholder-shown:bg-stone-50 focus:outline-blue-500 font-bold h-full text-xs p-3 leading-5 w-full" type="text" />
-                        </div>
-                        <p id="error-username" class="opacity-0 invisible mt-1 text-red-600 text-[10px] font-semibold">Username mustn't be emptied</p>
-                    </div>
-
+                <form class="mt-7.5 flex flex-col gap-y-5" method="post">
                     <div>
                         <label class="text-zinc-800 text-xs font-semibold">Email</label>
-                        <div class="h-11 border-zinc-300 mt-1 rounded-sm border text-neutral-500 flex items-center">
-                            <input id="email-input" name="email" placeholder="Please enter your email" class="rounded-sm placeholder-shown:bg-stone-50 focus:outline-blue-500 font-bold h-full text-xs p-3 leading-5 w-full" type="email" />
+                        <div class="has-focus:border-blue-500 h-11 border-zinc-300 mt-1 rounded-sm border text-neutral-500 flex items-center">
+                            <input id="email-input" placeholder="Please enter your email" class="rounded-sm placeholder-shown:bg-stone-50 focus:outline-0 font-bold h-full text-xs p-3 leading-5 w-full" type="email" />
                             <svg class="hidden" class="mx-3" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path
                                     fill-rule="evenodd"
@@ -54,29 +46,20 @@
                                 />
                             </svg>
                         </div>
-                        <p id="error-email" class="opacity-0 invisible mt-1 text-red-600 text-[10px] font-semibold">Invalid email address</p>
-                    </div>
-
-                    <div id="password-input">
-                        <label class="text-zinc-800 text-xs font-semibold">Password</label>
-                        <div class="border-zinc-300 mt-1 h-11 rounded-sm border text-neutral-500 flex items-center">
-                            <input id="password" name="password" placeholder="Enter password" class="rounded-sm focus:outline-blue-500 placeholder-shown:bg-stone-50 font-bold h-full text-xs px-3 leading-5 w-full" type="password" />
-                        </div>
-                        <p id="password-error" class="opacity-0 invisible mt-1 text-red-600 text-[10px] font-semibold">Password must be ≥8 chars, include lowercase, uppercase, number, and special character.</p>
+                        <p id="error-email" class="hidden mt-1 text-red-600 text-[10px] font-semibold">Invalid email address</p>
                     </div>
 
                     <div>
-                        <label class="text-zinc-800 text-xs font-semibold">Confirm Password</label>
-                        <div class="border-zinc-300 mt-1 h-11 rounded-sm border text-neutral-500 flex items-center">
-                            <input id="confirm-password" placeholder="Enter password" class="rounded-sm placeholder-shown:bg-stone-50 font-bold focus:outline-blue-500 h-full text-xs px-3 leading-5 w-full" type="password" />
+                        <label class="text-zinc-800 text-xs font-semibold">Password</label>
+                        <div class="has-focus:border-blue-500 border-zinc-300 mt-1 h-11 rounded-sm border text-neutral-500 flex items-center">
+                            <input placeholder="Enter password" class="rounded-sm placeholder-shown:bg-stone-50 font-bold focus:outline-0 h-full text-xs px-3 leading-5 w-full" type="password" />
                         </div>
-                        <p id="confirm-error" class="opacity-0 invisible mt-1 text-red-600 text-[10px] font-semibold">Passwords do not match. Try again.</p>
                     </div>
 
-                    <button id="submit" type="submit" class="cursor-pointer h-11 px-3.5 py-2 bg-blue-600 rounded-sm inline-flex justify-center items-center text-white text-base font-medium leading-4">Sign up</button>
+                    <p>Not registered? <a class="text-blue-500" href="./templates/sign-up.html">Create an account</a></p>
+                    <button id="submit" type="submit" class="active:opacity-80 cursor-pointer h-11 px-3.5 py-2 bg-blue-600 rounded-sm inline-flex justify-center items-center text-white text-base font-medium leading-4">Sign in</button>
                 </form>
             </div>
         </main>
-        <script src="../src/js/validate.js"></script>
     </body>
 </html>
