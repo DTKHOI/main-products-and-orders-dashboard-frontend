@@ -1,0 +1,312 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Products</title>
+    <link rel="stylesheet" href="../src/css/input.css" />
+    <link rel="stylesheet" href="../src/css/output.css" />
+  </head>
+  <body class="bg-body h-1000">
+    <!-- Mobile header -->
+    <header
+      class="sticky top-0 z-10 grid w-full grid-cols-[auto_auto] justify-between border-b-2 border-b-[rgba(229_231_235)] bg-white px-5 py-3 lg:hidden"
+    >
+      <div class="w-16 rounded-full">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
+          <!--!Font Awesome Free v7.3.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.-->
+          <path
+            d="M470.5 463.6C451.4 416.9 405.5 384 352 384L288 384C234.5 384 188.6 416.9 169.5 463.6C133.9 426.3 112 375.7 112 320C112 205.1 205.1 112 320 112C434.9 112 528 205.1 528 320C528 375.7 506.1 426.2 470.5 463.6zM430.4 496.3C398.4 516.4 360.6 528 320 528C279.4 528 241.6 516.4 209.5 496.3C216.8 459.6 249.2 432 288 432L352 432C390.8 432 423.2 459.6 430.5 496.3zM320 576C461.4 576 576 461.4 576 320C576 178.6 461.4 64 320 64C178.6 64 64 178.6 64 320C64 461.4 178.6 576 320 576zM320 304C297.9 304 280 286.1 280 264C280 241.9 297.9 224 320 224C342.1 224 360 241.9 360 264C360 286.1 342.1 304 320 304zM232 264C232 312.6 271.4 352 320 352C368.6 352 408 312.6 408 264C408 215.4 368.6 176 320 176C271.4 176 232 215.4 232 264z"
+          />
+        </svg>
+      </div>
+      <button type="button" class="" id="toggle-btn">
+        <svg
+          width="44"
+          height="44"
+          viewBox="0 0 24 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M4 12H20"
+            stroke="#364153"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+          <path
+            d="M4 6H20"
+            stroke="#364153"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+          <path
+            d="M4 18H20"
+            stroke="#364153"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+      </button>
+    </header>
+    <main class="px-5 py-8">
+      <div class="gy-6 grid grid-cols-1 lg:grid-cols-2">
+        <div>
+          <h1 class="text-3xl font-bold">Products</h1>
+          <p class="text-base text-gray-600">Manage your product inventory</p>
+        </div>
+        <button class="btn btn-primary mt-4 cursor-pointer gap-2">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            viewBox="0 0 20 20"
+            fill="none"
+          >
+            <path
+              d="M4.1665 10H15.8332"
+              stroke="white"
+              stroke-width="1.66667"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M10 4.16663V15.8333"
+              stroke="white"
+              stroke-width="1.66667"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+          <span>Add product</span>
+        </button>
+      </div>
+      <div class="mt-8 flex flex-col gap-4 rounded-2xl bg-white p-6 shadow">
+        <label
+          class="flex items-center gap-4 rounded-xl border border-[#E5E7EB] px-4 py-3"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            viewBox="0 0 20 20"
+            fill="none"
+          >
+            <path
+              d="M9.16667 15.8333C12.8486 15.8333 15.8333 12.8486 15.8333 9.16667C15.8333 5.48477 12.8486 2.5 9.16667 2.5C5.48477 2.5 2.5 5.48477 2.5 9.16667C2.5 12.8486 5.48477 15.8333 9.16667 15.8333Z"
+              stroke="#99A1AF"
+              stroke-width="1.66667"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M17.5 17.5L13.9166 13.9167"
+              stroke="#99A1AF"
+              stroke-width="1.66667"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+          <input
+            placeholder="Search products..."
+            class="w-full focus:outline-none"
+            type="text"
+            id="fiding-items"
+          />
+        </label>
+        <form
+          id="toggle-btn"
+          class="group relative flex cursor-pointer items-center gap-4 rounded-xl border border-[#E5E7EB] px-4 py-3"
+        >
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 20 20"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M8.33336 16.6667C8.33329 16.8215 8.37637 16.9733 8.45777 17.1051C8.53917 17.2368 8.65566 17.3433 8.79419 17.4125L10.4609 18.2458C10.5879 18.3093 10.7291 18.3393 10.8711 18.3329C11.013 18.3264 11.1509 18.2838 11.2717 18.2091C11.3925 18.1344 11.4922 18.03 11.5614 17.9059C11.6305 17.7818 11.6668 17.6421 11.6667 17.5V11.6667C11.6669 11.2537 11.8204 10.8554 12.0975 10.5492L18.1167 3.89167C18.2246 3.77213 18.2955 3.6239 18.3209 3.4649C18.3464 3.3059 18.3252 3.14294 18.2599 2.99573C18.1947 2.84851 18.0882 2.72335 17.9534 2.63538C17.8185 2.5474 17.661 2.50038 17.5 2.5H2.50003C2.33886 2.50006 2.18118 2.54685 2.04607 2.6347C1.91096 2.72255 1.80422 2.84769 1.73878 2.99497C1.67334 3.14225 1.65201 3.30534 1.67738 3.46449C1.70274 3.62364 1.77371 3.77203 1.88169 3.89167L7.90252 10.5492C8.17964 10.8554 8.33317 11.2537 8.33336 11.6667V16.6667Z"
+              stroke="#4A5565"
+              stroke-width="1.66667"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+          <span class="font-medium">All Products</span>
+
+          <div
+            class="invisible absolute top-9 left-0 z-1 size-fit w-full pt-5 opacity-0 group-hover:visible group-hover:opacity-100"
+          >
+            <div
+              class="flex h-48 w-56 flex-col overflow-hidden rounded-2xl bg-white shadow-lg outline outline-offset-[-0.80px] outline-gray-200"
+            >
+              <button
+                id="all-products"
+                class="cursor-pointer self-stretch px-4 py-3 text-left text-base font-medium hover:bg-blue-50 hover:text-blue-600"
+              >
+                All Products
+              </button>
+              <button
+                id="all-products"
+                class="cursor-pointer self-stretch px-4 py-3 text-left text-base font-medium hover:bg-blue-50 hover:text-blue-600"
+              >
+                Active
+              </button>
+              <button
+                id="all-products"
+                class="cursor-pointer self-stretch px-4 py-3 text-left text-base font-medium hover:bg-blue-50 hover:text-blue-600"
+              >
+                Inactive
+              </button>
+              <button
+                id="all-products"
+                class="cursor-pointer self-stretch px-4 py-3 text-left text-base font-medium hover:bg-blue-50 hover:text-blue-600"
+              >
+                Low Stock
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <ul class="mt-8 grid grid-cols-1 gap-y-4">
+        <li>
+          <article
+            class="relative flex h-50 gap-4 rounded-2xl bg-white p-4 shadow"
+          >
+            <div class="w-fit shrink-0">
+              <img
+                class="size-20 rounded-xl object-cover"
+                src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400"
+                alt="Premium Wireless Headphones"
+              />
+            </div>
+            <div class="w-full">
+              <h3
+                class="line-clamp-2 h-13 w-36 text-base font-bold text-gray-900"
+              >
+                Premium Wireless Headphones
+              </h3>
+              <span class="mt-1 block font-['Consolas'] text-xs text-gray-500"
+                >WH-001</span
+              >
+              <div class="mt-2 grid grid-cols-[1.5fr_1fr]">
+                <div>
+                  <p class="text-sm font-normal text-gray-500">Price</p>
+                  <span class="text-base font-semibold text-gray-900"
+                    >$299.99</span
+                  >
+                </div>
+                <div>
+                  <p class="text-sm font-normal text-gray-500">Stock</p>
+                  <span class="text-base font-semibold text-green-600">45</span>
+                </div>
+              </div>
+              <div class="mt-4 flex items-center justify-between">
+                <div class="rounded-full bg-blue-100 px-2 py-1">
+                  <p class="text-xs font-medium text-blue-800">Electronics</p>
+                </div>
+                <div>
+                  <button class="p-2" type="button">
+                    <svg
+                      width="16"
+                      height="16"
+                      viewBox="0 0 16 16"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <g clip-path="url(#clip0_9_500)">
+                        <path
+                          d="M8 2H3.33333C2.97971 2 2.64057 2.14048 2.39052 2.39052C2.14048 2.64057 2 2.97971 2 3.33333V12.6667C2 13.0203 2.14048 13.3594 2.39052 13.6095C2.64057 13.8595 2.97971 14 3.33333 14H12.6667C13.0203 14 13.3594 13.8595 13.6095 13.6095C13.8595 13.3594 14 13.0203 14 12.6667V8"
+                          stroke="#155DFC"
+                          stroke-width="1.33333"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M12.25 1.75003C12.5152 1.48481 12.8749 1.33582 13.25 1.33582C13.6251 1.33582 13.9848 1.48481 14.25 1.75003C14.5152 2.01525 14.6642 2.37496 14.6642 2.75003C14.6642 3.1251 14.5152 3.48481 14.25 3.75003L8.24136 9.75936C8.08305 9.91753 7.88749 10.0333 7.67269 10.096L5.75735 10.656C5.69999 10.6728 5.63918 10.6738 5.58129 10.6589C5.52341 10.6441 5.47057 10.614 5.42832 10.5717C5.38607 10.5295 5.35595 10.4766 5.34112 10.4188C5.32629 10.3609 5.32729 10.3001 5.34402 10.2427L5.90402 8.32736C5.96704 8.11273 6.08304 7.9174 6.24136 7.75936L12.25 1.75003Z"
+                          stroke="#155DFC"
+                          stroke-width="1.33333"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </g>
+                      <defs>
+                        <clipPath id="clip0_9_500">
+                          <rect width="16" height="16" fill="white" />
+                        </clipPath>
+                      </defs>
+                    </svg>
+                  </button>
+                  <button class="p-2" type="button">
+                    <svg
+                      width="16"
+                      height="16"
+                      viewBox="0 0 16 16"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <g clip-path="url(#clip0_9_504)">
+                        <path
+                          d="M2 4H14"
+                          stroke="#E7000B"
+                          stroke-width="1.33333"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M12.6667 4V13.3333C12.6667 14 12 14.6667 11.3334 14.6667H4.66671C4.00004 14.6667 3.33337 14 3.33337 13.3333V4"
+                          stroke="#E7000B"
+                          stroke-width="1.33333"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M5.33337 4.00004V2.66671C5.33337 2.00004 6.00004 1.33337 6.66671 1.33337H9.33337C10 1.33337 10.6667 2.00004 10.6667 2.66671V4.00004"
+                          stroke="#E7000B"
+                          stroke-width="1.33333"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M6.66663 7.33337V11.3334"
+                          stroke="#E7000B"
+                          stroke-width="1.33333"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M9.33337 7.33337V11.3334"
+                          stroke="#E7000B"
+                          stroke-width="1.33333"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </g>
+                      <defs>
+                        <clipPath id="clip0_9_504">
+                          <rect width="16" height="16" fill="white" />
+                        </clipPath>
+                      </defs>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div
+              class="absolute top-27 left-7 flex min-w-13.5 justify-center rounded-full bg-green-100 px-2 py-1"
+            >
+              <div class="text-center text-xs font-medium text-green-800">
+                Active
+              </div>
+            </div>
+          </article>
+        </li>
+      </ul>
+    </main>
+  </body>
+</html>
