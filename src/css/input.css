@@ -20,6 +20,8 @@
   --color-button-yellow: #ffc300;
 
   --color-body: #efefef;
+
+  --fill-black: black;
 }
 
 @utility btn {
@@ -32,4 +34,20 @@
 
 @utility btn-primary {
   @apply bg-linear-to-r from-[#155DFC] to-[#9810FA] py-3 text-base text-white;
+}
+
+@utility outline-icon {
+  @apply stroke-black group-hover:stroke-white;
+}
+
+@utility shadow-tab-button {
+  box-shadow:
+    0 10px 15px -3px #bedbff,
+    0 4px 6px -4px #bedbff;
+}
+
+@utility shadow-tab-hover {
+  box-shadow:
+    0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -2px rgba(0, 0, 0, 0.1);
 }
