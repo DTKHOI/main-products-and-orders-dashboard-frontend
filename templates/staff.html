@@ -3,9 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Products</title>
+    <title>Staff</title>
     <link rel="stylesheet" href="../src/css/input.css" />
     <link rel="stylesheet" href="../src/css/output.css" />
+
+    <script src="../src/js/modal.js"></script>
   </head>
   <body class="bg-body h-full lg:grid lg:grid-cols-[auto_1fr]">
     <!-- Mobile header -->
@@ -105,7 +107,7 @@
           <ul class="flex flex-col gap-2">
             <li>
               <a
-                class="group shadow-tab-button flex items-center gap-3 rounded-2xl bg-linear-to-r from-[#155DFC] to-[#9810FA] px-4 py-3 font-medium text-white lg:w-13 xl:w-auto"
+                class="group hover:shadow-tab-hover flex items-center gap-3 rounded-2xl px-4 py-3 font-medium hover:bg-gray-200 lg:w-13 xl:w-auto"
                 href="products.html"
               >
                 <svg
@@ -117,28 +119,28 @@
                 >
                   <path
                     d="M9.16667 18.1084C9.42003 18.2546 9.70744 18.3316 10 18.3316C10.2926 18.3316 10.58 18.2546 10.8333 18.1084L16.6667 14.775C16.9198 14.6289 17.13 14.4188 17.2763 14.1657C17.4225 13.9127 17.4997 13.6256 17.5 13.3334V6.66669C17.4997 6.37442 17.4225 6.08736 17.2763 5.83432C17.13 5.58128 16.9198 5.37116 16.6667 5.22502L10.8333 1.89169C10.58 1.74541 10.2926 1.6684 10 1.6684C9.70744 1.6684 9.42003 1.74541 9.16667 1.89169L3.33333 5.22502C3.08022 5.37116 2.86998 5.58128 2.72372 5.83432C2.57745 6.08736 2.5003 6.37442 2.5 6.66669V13.3334C2.5003 13.6256 2.57745 13.9127 2.72372 14.1657C2.86998 14.4188 3.08022 14.6289 3.33333 14.775L9.16667 18.1084Z"
-                    stroke="white"
+                    stroke="black"
                     stroke-width="1.66667"
                     stroke-linecap="round"
                     stroke-linejoin="round"
                   />
                   <path
                     d="M10 18.3333V10"
-                    stroke="white"
+                    stroke="black"
                     stroke-width="1.66667"
                     stroke-linecap="round"
                     stroke-linejoin="round"
                   />
                   <path
                     d="M2.74164 5.83331L9.99997 9.99998L17.2583 5.83331"
-                    stroke="white"
+                    stroke="black"
                     stroke-width="1.66667"
                     stroke-linecap="round"
                     stroke-linejoin="round"
                   />
                   <path
                     d="M6.25 3.55835L13.75 7.85002"
-                    stroke="white"
+                    stroke="black"
                     stroke-width="1.66667"
                     stroke-linecap="round"
                     stroke-linejoin="round"
@@ -188,7 +190,7 @@
             </li>
             <li>
               <a
-                class="group hover:shadow-tab-hover flex items-center gap-3 rounded-2xl px-4 py-3 font-medium hover:bg-gray-200 lg:w-13 xl:w-auto"
+                class="group shadow-tab-button flex items-center gap-3 rounded-2xl bg-linear-to-r from-[#155DFC] to-[#9810FA] px-4 py-3 font-medium text-white lg:w-13 xl:w-auto"
                 href="staff.html"
               >
                 <svg
@@ -200,14 +202,14 @@
                 >
                   <path
                     d="M5 20V19C5 15.134 8.13401 12 12 12C15.866 12 19 15.134 19 19V20"
-                    stroke="black"
+                    stroke="white"
                     stroke-width="1.66667"
                     stroke-linecap="round"
                     stroke-linejoin="round"
                   />
                   <path
                     d="M12 12C14.2091 12 16 10.2091 16 8C16 5.79086 14.2091 4 12 4C9.79086 4 8 5.79086 8 8C8 10.2091 9.79086 12 12 12Z"
-                    stroke="black"
+                    stroke="white"
                     stroke-width="1.66667"
                     stroke-linecap="round"
                     stroke-linejoin="round"
@@ -286,12 +288,12 @@
           class="gy-6 p grid grid-cols-1 lg:grid-cols-[auto_auto] lg:items-center lg:justify-between"
         >
           <div>
-            <h1 class="text-3xl font-bold">Products</h1>
-            <p class="text-base text-gray-600">Manage your product inventory</p>
+            <h1 class="text-3xl font-bold">Staff</h1>
+            <p class="text-base text-gray-600">Manage your staffs</p>
           </div>
 
           <button
-            onclick="openModal(`productModal`)"
+            onclick="openModal(`staffModal`)"
             type="button"
             class="mt-4 flex cursor-pointer items-center justify-center gap-2 rounded-2xl bg-linear-to-r from-[#155DFC] to-[#9810FA] px-3 py-4 text-base font-medium text-white shadow-xl lg:mt-0 lg:h-12 lg:px-5.5"
           >
@@ -317,31 +319,32 @@
                 stroke-linejoin="round"
               />
             </svg>
-            <span>Add product</span>
+            <span>Add staff</span>
           </button>
 
-          <!-- Add product modal -->
+          <!-- Add staff modal -->
           <div
-            id="productModal"
+            id="staffModal"
             class="modal-overlay invisible fixed inset-0 z-50 flex w-screen items-center justify-center bg-[#00000073] p-4"
           >
             <div
-              class="max-h-[90vh] w-[90vw] overflow-y-auto rounded-2xl bg-white shadow-2xl md:w-lg lg:w-xl xl:w-2xl"
+              class="flex max-h-[92vh] w-[90vw] flex-col overflow-hidden rounded-2xl bg-white shadow-2xl md:w-lg lg:w-xl xl:w-2xl"
             >
+              <!-- Header -->
               <div class="px-6 pt-6">
                 <div class="flex items-center justify-between">
                   <div>
                     <h2 class="text-2xl font-bold text-[#101828]">
-                      Add New Product
+                      Add New Staff
                     </h2>
-                    <p class="text-gray-500">
-                      Fill in the product details below
+                    <p class="text-sm text-gray-500">
+                      Create a staff account for system management
                     </p>
                   </div>
                   <button
-                    onclick="closeModal('productModal')"
+                    onclick="closeModal('staffModal')"
                     type="button"
-                    class="cursor-pointer rounded-lg p-2 hover:bg-gray-100"
+                    class="cursor-pointer rounded-lg p-2 text-gray-500 transition hover:bg-gray-100"
                   >
                     <svg
                       width="24"
@@ -351,14 +354,7 @@
                       xmlns="http://www.w3.org/2000/svg"
                     >
                       <path
-                        d="M18 6L6 18"
-                        stroke="#4A5565"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      />
-                      <path
-                        d="M6 6L18 18"
+                        d="M18 6L6 18M6 6L18 18"
                         stroke="#4A5565"
                         stroke-width="2"
                         stroke-linecap="round"
@@ -368,182 +364,230 @@
                   </button>
                 </div>
               </div>
-              <div class="my-6 h-0.5 bg-[#E5E7EB]"></div>
 
+              <div class="my-4 h-[1px] bg-[#E5E7EB]"></div>
+
+              <!-- Form điền thông tin nhân viên -->
               <form
                 method="POST"
-                action="/products/create"
-                id="add-form"
-                class="flex flex-col gap-6 px-6 pb-6"
+                action="/staff/create"
+                id="staff-form"
+                class="flex flex-1 flex-col gap-4 overflow-y-auto px-6 pb-4"
               >
-                <!-- Product Name -->
-                <div class="flex flex-col gap-2">
-                  <label for="product_name" class="font-medium text-gray-700"
-                    >Product Name *</label
-                  >
-                  <div class="rounded-2xl border border-gray-200">
-                    <input
-                      placeholder="e.g., Premium Wireless Headphones"
-                      id="product_name"
-                      name="name"
-                      type="text"
-                      required
-                      class="text-neutral-95 size-full rounded-2xl px-4 py-3 focus:outline-blue-600"
-                    />
-                  </div>
-                </div>
-
-                <!-- SKU -->
-                <div class="flex flex-col gap-2">
-                  <label for="product_id" class="font-medium text-gray-700"
-                    >SKU *</label
-                  >
-                  <div class="rounded-2xl border border-gray-200">
-                    <input
-                      placeholder="e.g., WH-001"
-                      id="product_id"
-                      name="sku"
-                      type="text"
-                      required
-                      class="text-neutral-95 size-full rounded-2xl px-4 py-3 focus:outline-blue-600"
-                    />
-                  </div>
-                </div>
-
-                <!-- Price & Stock -->
-                <div class="flex gap-4">
-                  <div class="flex-1">
-                    <label for="product_price" class="font-medium text-gray-700"
-                      >Price ($) *</label
-                    >
-                    <div class="mt-2 rounded-2xl border border-gray-200">
-                      <input
-                        placeholder="0.00"
-                        id="product_price"
-                        name="price"
-                        type="number"
-                        step="0.01"
-                        min="0"
-                        required
-                        class="text-neutral-95 size-full rounded-2xl px-4 py-3 focus:outline-blue-600"
-                      />
-                    </div>
-                  </div>
-                  <div class="flex-1">
+                <!-- Hàng 1: Họ tên & Mã NV -->
+                <div class="flex flex-col gap-4 sm:flex-row">
+                  <div class="flex flex-1 flex-col gap-1.5">
                     <label
-                      for="product_quantity"
-                      class="font-medium text-gray-700"
-                      >Stock *</label
+                      for="staff_name"
+                      class="text-sm font-semibold text-gray-800"
+                      >Full Name *</label
                     >
-                    <div class="mt-2 rounded-2xl border border-gray-200">
+                    <div
+                      class="rounded-xl border border-gray-200 transition focus-within:border-blue-600 focus-within:ring-2 focus-within:ring-blue-100"
+                    >
                       <input
-                        placeholder="0"
-                        id="product_quantity"
-                        name="stock"
-                        type="number"
-                        min="0"
-                        required
-                        class="text-neutral-95 size-full rounded-2xl px-4 py-3 focus:outline-blue-600"
+                        placeholder="e.g., Nguyen Van A"
+                        id="staff_name"
+                        name="name"
+                        type="text"
+                        class="size-full rounded-xl px-4 py-2.5 text-sm outline-none"
                       />
                     </div>
+                    <span class="error-msg hidden text-xs text-rose-500"
+                      >Please enter full name.</span
+                    >
+                  </div>
+
+                  <div class="flex w-full flex-col gap-1.5 sm:w-44">
+                    <label
+                      for="staff_id"
+                      class="text-sm font-semibold text-gray-800"
+                      >Staff ID *</label
+                    >
+                    <div
+                      class="rounded-xl border border-gray-200 transition focus-within:border-blue-600 focus-within:ring-2 focus-within:ring-blue-100"
+                    >
+                      <input
+                        placeholder="e.g., NV-001"
+                        id="staff_id"
+                        name="staff_id"
+                        type="text"
+                        class="size-full rounded-xl px-4 py-2.5 text-sm outline-none"
+                      />
+                    </div>
+                    <span class="error-msg hidden text-xs text-rose-500"
+                      >Please enter employee code.</span
+                    >
                   </div>
                 </div>
 
-                <!-- Category (Thẻ select chuẩn) -->
-                <div class="flex flex-col gap-2">
+                <!-- Hàng 2: Email & Số điện thoại -->
+                <div class="flex flex-col gap-4 sm:flex-row">
+                  <div class="flex flex-1 flex-col gap-1.5">
+                    <label
+                      for="staff_email"
+                      class="text-sm font-semibold text-gray-800"
+                      >Email *</label
+                    >
+                    <div
+                      class="rounded-xl border border-gray-200 transition focus-within:border-blue-600 focus-within:ring-2 focus-within:ring-blue-100"
+                    >
+                      <input
+                        placeholder="staff@company.com"
+                        id="staff_email"
+                        name="email"
+                        type="email"
+                        class="size-full rounded-xl px-4 py-2.5 text-sm outline-none"
+                      />
+                    </div>
+                    <span class="error-msg hidden text-xs text-rose-500"
+                      >Invalid Email.</span
+                    >
+                  </div>
+
+                  <div class="flex flex-1 flex-col gap-1.5">
+                    <label
+                      for="staff_phone"
+                      class="text-sm font-semibold text-gray-800"
+                      >Phone *</label
+                    >
+                    <div
+                      class="rounded-xl border border-gray-200 transition focus-within:border-blue-600 focus-within:ring-2 focus-within:ring-blue-100"
+                    >
+                      <input
+                        placeholder="0987654321"
+                        id="staff_phone"
+                        name="phone"
+                        type="tel"
+                        class="size-full rounded-xl px-4 py-2.5 text-sm outline-none"
+                      />
+                    </div>
+                    <span class="error-msg hidden text-xs text-rose-500"
+                      >Invalid phone number (10 digits).</span
+                    >
+                  </div>
+                </div>
+
+                <!-- Hàng 3: Mật khẩu đăng nhập -->
+                <div class="flex flex-col gap-1.5">
                   <label
-                    for="product_category"
-                    class="font-medium text-gray-700"
-                    >Category *</label
+                    for="staff_password"
+                    class="text-sm font-semibold text-gray-800"
+                    >Password *</label
                   >
-                  <div class="rounded-2xl border border-gray-200 bg-white">
-                    <select
-                      id="product_category"
-                      name="category"
-                      required
-                      class="text-neutral-95 size-full cursor-pointer rounded-2xl bg-transparent px-4 py-3 focus:outline-blue-600"
-                    >
-                      <option value="" disabled selected>
-                        Select a category
-                      </option>
-                      <option value="Electronics">Electronics</option>
-                      <option value="Clothing">Clothing</option>
-                      <option value="Accessories">Accessories</option>
-                      <option value="Footwear">Footwear</option>
-                    </select>
-                  </div>
-                </div>
-
-                <!-- Status -->
-                <div class="flex flex-col gap-2">
-                  <label class="font-medium text-gray-700">Status</label>
-                  <div class="flex items-center gap-4">
-                    <div class="flex items-center gap-2">
-                      <input
-                        checked
-                        value="active"
-                        id="product_active"
-                        name="status"
-                        type="radio"
-                        class="cursor-pointer"
-                      />
-                      <label for="product_active" class="cursor-pointer"
-                        >Active</label
-                      >
-                    </div>
-                    <div class="flex items-center gap-2">
-                      <input
-                        id="product_inactive"
-                        name="status"
-                        value="inactive"
-                        type="radio"
-                        class="cursor-pointer"
-                      />
-                      <label for="product_inactive" class="cursor-pointer"
-                        >Inactive</label
-                      >
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Image URL -->
-                <div class="flex flex-col gap-2">
-                  <label for="product_img" class="font-medium text-gray-700"
-                    >Image URL</label
+                  <div
+                    class="rounded-xl border border-gray-200 transition focus-within:border-blue-600 focus-within:ring-2 focus-within:ring-blue-100"
                   >
-                  <div class="rounded-2xl border border-gray-200">
                     <input
-                      placeholder="https://example.com/image.jpg"
-                      id="product_img"
-                      name="image_url"
-                      type="text"
-                      class="text-neutral-95 size-full rounded-2xl px-4 py-3 focus:outline-blue-600"
+                      placeholder="Minimum 8 characters (uppercase, lowercase, number, special character)"
+                      id="staff_password"
+                      name="password"
+                      type="password"
+                      class="size-full rounded-xl px-4 py-2.5 text-sm outline-none"
                     />
+                  </div>
+                  <span class="error-msg hidden text-xs text-rose-500">
+                    Your password must be at least 8 characters and include
+                    uppercase, lowercase, numbers, and special symbols (e.g.,
+                    !@#$%^&...)
+                  </span>
+                </div>
+
+                <!-- Hàng 4: Địa chỉ -->
+                <div class="flex flex-col gap-1.5">
+                  <label
+                    for="staff_address"
+                    class="text-sm font-semibold text-gray-800"
+                    >Address</label
+                  >
+                  <div
+                    class="rounded-xl border border-gray-200 transition focus-within:border-blue-600 focus-within:ring-2 focus-within:ring-blue-100"
+                  >
+                    <input
+                      placeholder="address"
+                      id="staff_address"
+                      name="address"
+                      type="text"
+                      class="size-full rounded-xl px-4 py-2.5 text-sm outline-none"
+                    />
+                  </div>
+                </div>
+
+                <!-- Hàng 5: Giới tính & Ảnh đại diện -->
+                <div
+                  class="flex flex-col items-start gap-4 sm:flex-row sm:items-center"
+                >
+                  <!-- Gender (Radio) -->
+                  <div class="flex flex-col gap-1.5">
+                    <label class="text-sm font-semibold text-gray-800"
+                      >Gender</label
+                    >
+                    <div class="flex items-center gap-4 py-1.5">
+                      <label
+                        class="flex cursor-pointer items-center gap-1.5 text-sm text-gray-700"
+                      >
+                        <input
+                          type="radio"
+                          name="gender"
+                          value="male"
+                          checked
+                          class="h-4 w-4 cursor-pointer text-blue-600"
+                        />
+                        <span>Male</span>
+                      </label>
+                      <label
+                        class="flex cursor-pointer items-center gap-1.5 text-sm text-gray-700"
+                      >
+                        <input
+                          type="radio"
+                          name="gender"
+                          value="female"
+                          class="h-4 w-4 cursor-pointer text-blue-600"
+                        />
+                        <span>Female</span>
+                      </label>
+                    </div>
+                  </div>
+
+                  <!-- Image URL -->
+                  <div class="flex w-full flex-1 flex-col gap-1.5">
+                    <label
+                      for="staff_avatar"
+                      class="text-sm font-semibold text-gray-800"
+                      >Avatar URL</label
+                    >
+                    <div
+                      class="rounded-xl border border-gray-200 transition focus-within:border-blue-600 focus-within:ring-2 focus-within:ring-blue-100"
+                    >
+                      <input
+                        placeholder="https://example.com/avatar.jpg"
+                        id="staff_avatar"
+                        name="avatar_url"
+                        type="text"
+                        class="size-full rounded-xl px-4 py-2.5 text-sm outline-none"
+                      />
+                    </div>
                   </div>
                 </div>
               </form>
 
               <!-- Footer Actions -->
               <div
-                class="flex items-center justify-end gap-1 rounded-br-2xl rounded-bl-2xl bg-[#F9FAFB] px-3 py-3 sm:gap-3 sm:px-6 sm:py-6"
+                class="flex items-center justify-end gap-3 rounded-b-2xl border-t border-gray-100 bg-[#F9FAFB] px-6 py-4"
               >
                 <button
-                  onclick="closeModal('productModal')"
+                  onclick="closeModal('staffModal')"
                   type="button"
-                  class="cursor-pointer rounded-xl bg-white px-6 py-3 outline outline-gray-200 hover:bg-gray-50"
+                  class="cursor-pointer rounded-xl border border-gray-200 bg-white px-6 py-2.5 text-sm font-medium text-gray-700 transition hover:bg-gray-50"
                 >
-                  <span class="text-center font-medium text-gray-700"
-                    >Cancel</span
-                  >
+                  Cancel
                 </button>
                 <button
-                  form="add-form"
+                  form="staff-form"
                   type="submit"
-                  class="cursor-pointer rounded-xl bg-gradient-to-r from-blue-600 to-purple-600 px-6 py-3 shadow-lg hover:opacity-95"
+                  class="cursor-pointer rounded-xl bg-linear-to-r from-blue-600 to-purple-600 px-6 py-2.5 text-sm font-medium text-white shadow-md transition hover:opacity-95 active:scale-95"
                 >
-                  <span class="text-center font-medium text-white"
-                    >Add Product</span
-                  >
+                  Create Account
                 </button>
               </div>
             </div>
@@ -648,90 +692,132 @@
           class="mt-8 w-full overflow-x-hidden overflow-y-auto rounded-2xl border border-gray-200 bg-white shadow-sm lg:max-h-[calc(100vh-380px)]"
         >
           <div
-            class="sticky top-0 z-10 hidden grid-cols-[2.5fr_1fr_1.3fr_1.5fr_0.8fr_1.2fr_1.2fr] items-center gap-4 bg-[#F9FAFB] px-6 py-4 text-sm font-semibold lg:grid"
+            class="sticky top-0 z-10 hidden grid-cols-[0.9fr_1.5fr_2.5fr_1.5fr_0.8fr_1.2fr_1.2fr] items-center gap-4 bg-[#F9FAFB] px-6 py-4 text-sm font-semibold lg:grid"
           >
-            <div>PRODUCT</div>
-            <div>ID</div>
-            <div>CATEGORY</div>
-            <div class="">PRICE</div>
-            <div class="">QUANTITY</div>
-            <div class="text-center">STATUS</div>
+            <div>STAFF ID</div>
+            <div>NAME</div>
+            <div>ADDRESS</div>
+            <div>EMAIL</div>
+            <div class="text-center">PHONE</div>
+            <div class="text-center">GENDER</div>
             <div class="text-center">ACTIONS</div>
           </div>
 
           <!-- Dòng dữ liệu 1 -->
           <div
-            class="divde-y grid grid-cols-1 items-center gap-2 border-b border-gray-200 px-6 py-4 text-sm last:border-b-0 lg:grid-cols-[2.5fr_1fr_1.3fr_1.5fr_0.8fr_1.2fr_1.2fr] lg:gap-4"
+            class="divde-y grid grid-cols-1 items-center gap-2 border-b border-gray-200 px-6 py-4 text-sm last:border-b-0 lg:grid-cols-[0.9fr_1.5fr_2.5fr_1.5fr_0.8fr_1.2fr_1.2fr] lg:gap-4"
           >
+            <!-- STAFF ID -->
             <div
-              class="flex min-w-0 items-center justify-between border-b border-gray-100 py-2 font-medium lg:border-none lg:py-0"
-              title="Bàn phím cơ AKKO 3098B Doll"
+              class="flex justify-between border-b border-gray-100 py-2 before:font-bold before:text-slate-400 before:content-['ORDER_ID:'] lg:border-none lg:py-0 before:lg:hidden"
+            >
+              853012
+            </div>
+
+            <!-- NAME -->
+            <div
+              class="flex min-w-0 items-center justify-between border-b border-gray-100 py-2 lg:border-none lg:py-0"
             >
               <div class="flex w-full min-w-0 items-center gap-3">
-                <img
-                  class="size-11 shrink-0 rounded-lg object-cover"
-                  src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=100"
-                  alt="Premium Wireless Headphones"
-                  width="48"
-                  height="48"
-                />
-
-                <div class="min-w-0 flex-1">
+                <div
+                  class="flex min-w-0 flex-1 justify-between before:font-bold before:text-slate-400 before:content-['ADDRESS:'] lg:block before:lg:hidden"
+                >
                   <p
-                    class="line-clamp-2 text-left font-semibold! text-gray-900 lg:block lg:truncate lg:font-normal"
+                    class="line-clamp-2 text-right lg:block lg:truncate lg:text-left lg:font-normal"
                   >
-                    Bàn phím cơ AKKO 3098B Doll Bàn phím cơ AKKO 3098B Doll
-                  </p>
-                  <p class="mt-0.5 hidden text-xs text-slate-400 lg:block">
-                    Added 26/9/2026
+                    Nguyễn Lưu Triệu Quang
                   </p>
                 </div>
               </div>
             </div>
 
-            <!-- SKU -->
+            <!-- Address -->
             <div
-              class="flex justify-between border-b border-gray-100 py-2 before:font-bold before:text-slate-400 before:content-['SKU:'] lg:border-none lg:py-0 before:lg:hidden"
+              class="flex min-w-0 items-center justify-between border-b border-gray-100 py-2 lg:border-none lg:py-0"
             >
-              853012
+              <div class="flex w-full min-w-0 items-center gap-3">
+                <div
+                  class="flex min-w-0 flex-1 justify-between before:font-bold before:text-slate-400 before:content-['ADDRESS:'] lg:block before:lg:hidden"
+                >
+                  <p
+                    class="line-clamp-2 text-right lg:block lg:truncate lg:text-left lg:font-normal"
+                  >
+                    694/39 Nguyễn Xiển, Long Bình, TP.HCM
+                  </p>
+                </div>
+              </div>
             </div>
 
-            <!-- Category -->
+            <!-- EMAIL -->
             <div
-              class="flex justify-between border-b border-gray-100 py-2 before:font-bold before:text-slate-400 before:content-['CATEGORY:'] lg:border-none lg:py-0 before:lg:hidden"
+              class="flex min-w-0 items-center justify-between border-b border-gray-100 py-2 lg:border-none lg:py-0"
             >
-              Electronics
+              <div class="flex w-full min-w-0 items-center gap-3">
+                <div
+                  class="flex min-w-0 flex-1 justify-between before:font-bold before:text-slate-400 before:content-['ADDRESS:'] lg:block before:lg:hidden"
+                >
+                  <p
+                    class="line-clamp-2 text-right lg:block lg:truncate lg:text-left lg:font-normal"
+                  >
+                    khoiduongtuan25@gmail.com
+                  </p>
+                </div>
+              </div>
             </div>
 
-            <!-- Price -->
+            <!-- PHONE -->
             <div
-              class="flex justify-between border-b border-gray-100 py-2 tabular-nums before:font-bold before:text-slate-400 before:content-['PRICE:'] lg:border-none lg:py-0 lg:text-right before:lg:hidden"
+              class="flex justify-between border-b border-gray-100 py-2 tabular-nums before:font-bold before:text-slate-400 before:content-['DATE:'] lg:justify-center lg:border-none lg:py-0 lg:text-left before:lg:hidden"
             >
-              100.850.000đ
+              0987654321
             </div>
 
-            <!-- Quantity -->
-            <div
-              class="flex justify-between border-b border-gray-100 py-2 tabular-nums before:font-bold before:text-slate-400 before:content-['QUANTITY:'] lg:border-none lg:py-0 lg:text-left before:lg:hidden"
-            >
-              0
-            </div>
-
-            <!-- Status -->
+            <!-- GENĐER -->
             <div
               class="flex justify-between border-b border-gray-100 py-2 before:font-bold before:text-slate-400 before:content-['STATUS:'] lg:justify-center lg:border-none lg:py-0 before:lg:hidden"
             >
-              <span
-                class="inline-flex items-center rounded-full bg-rose-100 px-3 py-1 font-medium text-red-400"
-                >Inactive</span
-              >
+              FEMALE
             </div>
 
             <!-- Actions -->
             <div
               class="flex justify-between py-2 before:font-bold before:text-slate-400 before:content-['ACTIONS:'] lg:justify-center lg:py-0 before:lg:hidden"
             >
-              <div class="flex gap-2">
+              <div class="flex">
+                <button
+                  class="cursor-pointer p-2 hover:opacity-60"
+                  type="button"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 16 16"
+                    fill="none"
+                  >
+                    <g clip-path="url(#clip0_72_346)">
+                      <path
+                        d="M1.37392 7.76404C1.31839 7.91364 1.31839 8.07821 1.37392 8.22781C1.91478 9.53924 2.83286 10.6605 4.01177 11.4496C5.19068 12.2386 6.57732 12.6598 7.9959 12.6598C9.41449 12.6598 10.8011 12.2386 11.98 11.4496C13.1589 10.6605 14.077 9.53924 14.6179 8.22781C14.6734 8.07821 14.6734 7.91364 14.6179 7.76404C14.077 6.45261 13.1589 5.3313 11.98 4.54227C10.8011 3.75325 9.41449 3.33203 7.9959 3.33203C6.57732 3.33203 5.19068 3.75325 4.01177 4.54227C2.83286 5.3313 1.91478 6.45261 1.37392 7.76404Z"
+                        stroke="#155DFC"
+                        stroke-width="1.33266"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        d="M7.99594 9.99505C9.09995 9.99505 9.99492 9.10007 9.99492 7.99606C9.99492 6.89205 9.09995 5.99707 7.99594 5.99707C6.89193 5.99707 5.99695 6.89205 5.99695 7.99606C5.99695 9.10007 6.89193 9.99505 7.99594 9.99505Z"
+                        stroke="#155DFC"
+                        stroke-width="1.33266"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </g>
+                    <defs>
+                      <clipPath id="clip0_72_346">
+                        <rect width="15.9919" height="15.9919" fill="white" />
+                      </clipPath>
+                    </defs>
+                  </svg>
+                </button>
                 <button
                   class="cursor-pointer p-2 hover:opacity-60"
                   type="button"
@@ -885,7 +971,7 @@
                 </div>
               </div>
               <div class="flex flex-col gap-2">
-                <label for="product_id">ID *</label>
+                <label for="product_id">SKU *</label>
                 <div class="rounded-2xl border border-gray-200">
                   <input
                     id="product_id"
@@ -1085,7 +1171,6 @@
       </div>
     </main>
     <script src="../src/js/modal.js"></script>
-
-    <script src="../src/js/add_product.js"></script>
+    <script src="../src/js/staff_form.js"></script>
   </body>
 </html>
