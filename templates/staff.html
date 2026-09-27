@@ -10,50 +10,241 @@
     <script src="../src/js/modal.js"></script>
   </head>
   <body class="bg-body h-full lg:grid lg:grid-cols-[auto_1fr]">
-    <!-- Mobile header -->
+    <!-- Mobile Header -->
     <header
-      class="sticky top-0 z-10 grid w-full grid-cols-[auto_auto] justify-between border-b-2 border-b-[rgba(229_231_235)] bg-white px-5 py-3 lg:hidden"
+      class="sticky top-0 z-30 grid w-full grid-cols-[auto_auto] items-center justify-between border-b-2 border-gray-200 bg-white px-5 py-3 lg:hidden"
     >
-      <div class="w-16 rounded-full">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
-          <!--!Font Awesome Free v7.3.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.-->
+      <div
+        class="flex h-9 w-9 items-center justify-center rounded-full bg-slate-100 text-slate-600"
+      >
+        <svg class="h-5 w-5 fill-current" viewBox="0 0 640 640">
           <path
             d="M470.5 463.6C451.4 416.9 405.5 384 352 384L288 384C234.5 384 188.6 416.9 169.5 463.6C133.9 426.3 112 375.7 112 320C112 205.1 205.1 112 320 112C434.9 112 528 205.1 528 320C528 375.7 506.1 426.2 470.5 463.6zM430.4 496.3C398.4 516.4 360.6 528 320 528C279.4 528 241.6 516.4 209.5 496.3C216.8 459.6 249.2 432 288 432L352 432C390.8 432 423.2 459.6 430.5 496.3zM320 576C461.4 576 576 461.4 576 320C576 178.6 461.4 64 320 64C178.6 64 64 178.6 64 320C64 461.4 178.6 576 320 576zM320 304C297.9 304 280 286.1 280 264C280 241.9 297.9 224 320 224C342.1 224 360 241.9 360 264C360 286.1 342.1 304 320 304zM232 264C232 312.6 271.4 352 320 352C368.6 352 408 312.6 408 264C408 215.4 368.6 176 320 176C271.4 176 232 215.4 232 264z"
           />
         </svg>
       </div>
-      <button type="button" class="" id="toggle-btn">
+
+      <button
+        type="button"
+        class="-mr-2 cursor-pointer rounded-lg p-2 text-slate-700 transition hover:bg-slate-100"
+        id="menu-btn"
+      >
         <svg
-          width="44"
-          height="44"
+          width="26"
+          height="26"
           viewBox="0 0 24 24"
           fill="none"
-          xmlns="http://www.w3.org/2000/svg"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
         >
-          <path
-            d="M4 12H20"
-            stroke="#364153"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          />
-          <path
-            d="M4 6H20"
-            stroke="#364153"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          />
-          <path
-            d="M4 18H20"
-            stroke="#364153"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          />
+          <path d="M4 12H20M4 6H20M4 18H20" />
         </svg>
       </button>
     </header>
+
+    <!-- nền mờ -->
+    <div id="menu-backdrop" class="fixed inset-0 z-40 hidden bg-black/50"></div>
+
+    <!-- Menu Drawer -->
+    <aside
+      id="mobile-menu"
+      class="fixed top-0 right-0 z-50 flex h-screen w-[75%] max-w-xs translate-x-full flex-col justify-between bg-white shadow-2xl transition-transform duration-300 ease-in-out"
+    >
+      <div class="flex-1 overflow-y-auto p-5">
+        <div
+          class="flex items-center justify-between border-b border-gray-100 pb-4"
+        >
+          <span
+            class="bg-linear-to-r from-blue-600 to-purple-600 bg-clip-text text-lg font-bold text-transparent"
+          >
+            ProductFlow
+          </span>
+          <button
+            type="button"
+            id="close-x-btn"
+            class="cursor-pointer rounded-lg p-1.5 text-gray-400 transition hover:bg-gray-100 hover:text-gray-600"
+          >
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M18 6L6 18M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+
+        <nav class="mt-4">
+          <ul class="flex flex-col gap-2">
+            <li>
+              <a
+                class="group hover:shadow-tab-hover flex items-center gap-3 rounded-2xl px-4 py-3 font-medium hover:bg-gray-200"
+                href="products.html"
+              >
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 20 20"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M9.16667 18.1084C9.42003 18.2546 9.70744 18.3316 10 18.3316C10.2926 18.3316 10.58 18.2546 10.8333 18.1084L16.6667 14.775C16.9198 14.6289 17.13 14.4188 17.2763 14.1657C17.4225 13.9127 17.4997 13.6256 17.5 13.3334V6.66669C17.4997 6.37442 17.4225 6.08736 17.2763 5.83432C17.13 5.58128 16.9198 5.37116 16.6667 5.22502L10.8333 1.89169C10.58 1.74541 10.2926 1.6684 10 1.6684C9.70744 1.6684 9.42003 1.74541 9.16667 1.89169L3.33333 5.22502C3.08022 5.37116 2.86998 5.58128 2.72372 5.83432C2.57745 6.08736 2.5003 6.37442 2.5 6.66669V13.3334C2.5003 13.6256 2.57745 13.9127 2.72372 14.1657C2.86998 14.4188 3.08022 14.6289 3.33333 14.775L9.16667 18.1084Z"
+                    stroke="black"
+                    stroke-width="1.66667"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                  <path
+                    d="M10 18.3333V10"
+                    stroke="black"
+                    stroke-width="1.66667"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                  <path
+                    d="M2.74164 5.83331L9.99997 9.99998L17.2583 5.83331"
+                    stroke="black"
+                    stroke-width="1.66667"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                  <path
+                    d="M6.25 3.55835L13.75 7.85002"
+                    stroke="black"
+                    stroke-width="1.66667"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+
+                <span class="lg:hidden xl:block">Products</span>
+              </a>
+            </li>
+            <li>
+              <a
+                class="group hover:shadow-tab-hover flex items-center gap-3 rounded-2xl px-4 py-3 font-medium hover:bg-gray-200"
+                href="orders.html"
+              >
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 20 20"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M6.66665 18.3334C7.12688 18.3334 7.49998 17.9603 7.49998 17.5C7.49998 17.0398 7.12688 16.6667 6.66665 16.6667C6.20641 16.6667 5.83331 17.0398 5.83331 17.5C5.83331 17.9603 6.20641 18.3334 6.66665 18.3334Z"
+                    stroke="black"
+                    stroke-width="1.66667"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                  <path
+                    d="M15.8333 18.3334C16.2936 18.3334 16.6667 17.9603 16.6667 17.5C16.6667 17.0398 16.2936 16.6667 15.8333 16.6667C15.3731 16.6667 15 17.0398 15 17.5C15 17.9603 15.3731 18.3334 15.8333 18.3334Z"
+                    stroke="black"
+                    stroke-width="1.66667"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                  <path
+                    d="M1.70831 1.70831H3.37498L5.59165 12.0583C5.67296 12.4374 5.88387 12.7762 6.18807 13.0165C6.49227 13.2568 6.87073 13.3836 7.25831 13.375H15.4083C15.7876 13.3744 16.1554 13.2444 16.4508 13.0065C16.7463 12.7686 16.9518 12.4371 17.0333 12.0666L18.4083 5.87498H4.26665"
+                    stroke="black"
+                    stroke-width="1.66667"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+
+                <span class="lg:hidden xl:block">Orders</span>
+              </a>
+            </li>
+            <li>
+              <a
+                class="group hover:shadow-tab-hover shadow-tab-button flex items-center gap-3 rounded-2xl bg-linear-to-r from-[#155DFC] to-[#9810FA] px-4 py-3 font-medium text-white hover:bg-gray-200 lg:w-13 xl:w-auto"
+                href="staff.html"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 20 20"
+                  fill="none"
+                >
+                  <path
+                    d="M5 20V19C5 15.134 8.13401 12 12 12C15.866 12 19 15.134 19 19V20"
+                    stroke="white"
+                    stroke-width="1.66667"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                  <path
+                    d="M12 12C14.2091 12 16 10.2091 16 8C16 5.79086 14.2091 4 12 4C9.79086 4 8 5.79086 8 8C8 10.2091 9.79086 12 12 12Z"
+                    stroke="white"
+                    stroke-width="1.66667"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+
+                <span class="lg:hidden xl:block">Staff</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+
+      <div class="border-t border-gray-100 p-4">
+        <button
+          class="flex w-full items-center justify-center gap-3 rounded-2xl bg-red-100 px-4 py-3 font-medium text-red-500"
+        >
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 20 20"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M7.5 17.5H4.16667C3.72464 17.5 3.30072 17.3244 2.98816 17.0118C2.67559 16.6993 2.5 16.2754 2.5 15.8333V4.16667C2.5 3.72464 2.67559 3.30072 2.98816 2.98816C3.30072 2.67559 3.72464 2.5 4.16667 2.5H7.5"
+              stroke="#E7000B"
+              stroke-width="1.66667"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M13.3333 14.1667L17.5 10L13.3333 5.83337"
+              stroke="#E7000B"
+              stroke-width="1.66667"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M17.5 10H7.5"
+              stroke="#E7000B"
+              stroke-width="1.66667"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+          <span class="lg:hidden xl:inline-block">Sign out</span>
+        </button>
+        <button
+          id="close-btn"
+          type="button"
+          class="mt-3 w-full cursor-pointer rounded-xl bg-gray-100 px-4 py-2.5 text-center text-sm font-medium text-gray-700 transition hover:bg-gray-200"
+        >
+          Close Menu
+        </button>
+      </div>
+    </aside>
 
     <!-- aside -->
     <div class="hidden min-h-screen lg:flex lg:w-22 xl:w-70">
@@ -325,7 +516,7 @@
           <!-- Add staff modal -->
           <div
             id="staffModal"
-            class="modal-overlay invisible fixed inset-0 z-50 flex w-screen items-center justify-center bg-[#00000073] p-4"
+            class="modal-overlay fixed inset-0 z-50 flex hidden w-screen items-center justify-center bg-[#00000073] p-4"
           >
             <div
               class="flex max-h-[92vh] w-[90vw] flex-col overflow-hidden rounded-2xl bg-white shadow-2xl md:w-lg lg:w-xl xl:w-2xl"
@@ -1172,5 +1363,6 @@
     </main>
     <script src="../src/js/modal.js"></script>
     <script src="../src/js/staff_form.js"></script>
+    <script src="../src/js/mobile_menu.js"></script>
   </body>
 </html>
