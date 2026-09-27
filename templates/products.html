@@ -200,40 +200,43 @@
       </div>
 
       <div class="border-t border-gray-100 p-4">
-        <button
-          class="flex w-full items-center justify-center gap-3 rounded-2xl bg-red-100 px-4 py-3 font-medium text-red-500"
-        >
-          <svg
-            width="20"
-            height="20"
-            viewBox="0 0 20 20"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
+        <form method="post" action="/">
+          <button
+            type="submit"
+            class="flex w-full items-center justify-center gap-3 rounded-2xl bg-red-100 px-4 py-3 font-medium text-red-500"
           >
-            <path
-              d="M7.5 17.5H4.16667C3.72464 17.5 3.30072 17.3244 2.98816 17.0118C2.67559 16.6993 2.5 16.2754 2.5 15.8333V4.16667C2.5 3.72464 2.67559 3.30072 2.98816 2.98816C3.30072 2.67559 3.72464 2.5 4.16667 2.5H7.5"
-              stroke="#E7000B"
-              stroke-width="1.66667"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-            <path
-              d="M13.3333 14.1667L17.5 10L13.3333 5.83337"
-              stroke="#E7000B"
-              stroke-width="1.66667"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-            <path
-              d="M17.5 10H7.5"
-              stroke="#E7000B"
-              stroke-width="1.66667"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-          </svg>
-          <span class="lg:hidden xl:inline-block">Sign out</span>
-        </button>
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 20 20"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M7.5 17.5H4.16667C3.72464 17.5 3.30072 17.3244 2.98816 17.0118C2.67559 16.6993 2.5 16.2754 2.5 15.8333V4.16667C2.5 3.72464 2.67559 3.30072 2.98816 2.98816C3.30072 2.67559 3.72464 2.5 4.16667 2.5H7.5"
+                stroke="#E7000B"
+                stroke-width="1.66667"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M13.3333 14.1667L17.5 10L13.3333 5.83337"
+                stroke="#E7000B"
+                stroke-width="1.66667"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M17.5 10H7.5"
+                stroke="#E7000B"
+                stroke-width="1.66667"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+            <span class="lg:hidden xl:inline-block">Sign out</span>
+          </button>
+        </form>
         <button
           id="close-btn"
           type="button"
@@ -640,7 +643,7 @@
                   </div>
                 </div>
 
-                <!-- Category (Thẻ select chuẩn) -->
+                <!-- Category -->
                 <div class="flex flex-col gap-2">
                   <label
                     for="product_category"
@@ -836,6 +839,7 @@
 
         <!-- Table -->
         <div
+          id="table"
           class="mt-8 w-full overflow-x-hidden overflow-y-auto rounded-2xl border border-gray-200 bg-white shadow-sm lg:max-h-[calc(100vh-380px)]"
         >
           <div
@@ -852,7 +856,186 @@
 
           <!-- Dòng dữ liệu 1 -->
           <div
-            class="divde-y grid grid-cols-1 items-center gap-2 border-b border-gray-200 px-6 py-4 text-sm last:border-b-0 lg:grid-cols-[2.5fr_1fr_1.3fr_1.5fr_0.8fr_1.2fr_1.2fr] lg:gap-4"
+            data-id="892371"
+            data-name="Tai nghe không dây"
+            data-category="Inactive"
+            data-price="2000000"
+            data-quantity="100"
+            data-status="active"
+            class="item divde-y grid grid-cols-1 items-center gap-2 border-b border-gray-200 px-6 py-4 text-sm last:border-b-0 lg:grid-cols-[2.5fr_1fr_1.3fr_1.5fr_0.8fr_1.2fr_1.2fr] lg:gap-4"
+          >
+            <div
+              class="flex min-w-0 items-center justify-between border-b border-gray-100 py-2 font-medium lg:border-none lg:py-0"
+              title="Bàn phím cơ AKKO 3098B Doll"
+            >
+              <div class="flex w-full min-w-0 items-center gap-3">
+                <img
+                  class="size-11 shrink-0 rounded-lg object-cover"
+                  src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=100"
+                  alt="Premium Wireless Headphones"
+                  width="48"
+                  height="48"
+                />
+
+                <div class="min-w-0 flex-1">
+                  <p
+                    class="line-clamp-2 text-left font-semibold! text-gray-900 lg:block lg:truncate lg:font-normal"
+                  >
+                    Tai nghe không dây
+                  </p>
+                  <p class="mt-0.5 hidden text-xs text-slate-400 lg:block">
+                    Added 26/9/2026
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- SKU -->
+            <div
+              class="flex justify-between border-b border-gray-100 py-2 before:font-bold before:text-slate-400 before:content-['SKU:'] lg:border-none lg:py-0 before:lg:hidden"
+            >
+              892371
+            </div>
+
+            <!-- Category -->
+            <div
+              class="flex justify-between border-b border-gray-100 py-2 before:font-bold before:text-slate-400 before:content-['CATEGORY:'] lg:border-none lg:py-0 before:lg:hidden"
+            >
+              Electronics
+            </div>
+
+            <!-- Price -->
+            <div
+              class="flex justify-between border-b border-gray-100 py-2 tabular-nums before:font-bold before:text-slate-400 before:content-['PRICE:'] lg:border-none lg:py-0 lg:text-right before:lg:hidden"
+            >
+              2000000đ
+            </div>
+
+            <!-- Quantity -->
+            <div
+              class="flex justify-between border-b border-gray-100 py-2 tabular-nums before:font-bold before:text-slate-400 before:content-['QUANTITY:'] lg:border-none lg:py-0 lg:text-left before:lg:hidden"
+            >
+              100
+            </div>
+
+            <!-- Status -->
+            <div
+              class="flex justify-between border-b border-gray-100 py-2 before:font-bold before:text-slate-400 before:content-['STATUS:'] lg:justify-center lg:border-none lg:py-0 before:lg:hidden"
+            >
+              <span
+                class="inline-flex items-center rounded-full bg-rose-100 px-3 py-1 font-medium text-red-400"
+                >Active</span
+              >
+            </div>
+
+            <!-- Actions -->
+            <div
+              class="flex justify-between py-2 before:font-bold before:text-slate-400 before:content-['ACTIONS:'] lg:justify-center lg:py-0 before:lg:hidden"
+            >
+              <div class="flex gap-2">
+                <button
+                  onclick="openEditModal(this)"
+                  id="edit-modal"
+                  class="cursor-pointer p-2 hover:opacity-60"
+                  type="button"
+                >
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 16 16"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <g clip-path="url(#clip0_9_500)">
+                      <path
+                        d="M8 2H3.33333C2.97971 2 2.64057 2.14048 2.39052 2.39052C2.14048 2.64057 2 2.97971 2 3.33333V12.6667C2 13.0203 2.14048 13.3594 2.39052 13.6095C2.64057 13.8595 2.97971 14 3.33333 14H12.6667C13.0203 14 13.3594 13.8595 13.6095 13.6095C13.8595 13.3334 14 13.0203 14 12.6667V8"
+                        stroke="#155DFC"
+                        stroke-width="1.33333"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        d="M12.25 1.75003C12.5152 1.48481 12.8749 1.33582 13.25 1.33582C13.6251 1.33582 13.9848 1.48481 14.25 1.75003C14.5152 2.01525 14.6642 2.37496 14.6642 2.75003C14.6642 3.1251 14.5152 3.48481 14.25 3.75003L8.24136 9.75936C8.08305 9.91753 7.88749 10.0333 7.67269 10.096L5.75735 10.656C5.69999 10.6728 5.63918 10.6738 5.58129 10.6589C5.52341 10.6441 5.47057 10.614 5.42832 10.5717C5.38607 10.5295 5.35595 10.4766 5.34112 10.4188C5.32629 10.3609 5.32729 10.3001 5.34402 10.2427L5.90402 8.32736C5.96704 8.11273 6.08304 7.9174 6.24136 7.75936L12.25 1.75003Z"
+                        stroke="#155DFC"
+                        stroke-width="1.33333"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </g>
+                    <defs>
+                      <clipPath id="clip0_9_500">
+                        <rect width="16" height="16" fill="white" />
+                      </clipPath>
+                    </defs>
+                  </svg>
+                </button>
+                <button
+                  onclick="openDeleteModal(this)"
+                  class="cursor-pointer p-2 hover:opacity-60"
+                  type="button"
+                >
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 16 16"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <g clip-path="url(#clip0_9_504)">
+                      <path
+                        d="M2 4H14"
+                        stroke="#E7000B"
+                        stroke-width="1.33333"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        d="M12.6667 4V13.3333C12.6667 14 12 14.6667 11.3334 14.6667H4.66671C4.00004 14.6667 3.33337 14 3.33337 13.3333V4"
+                        stroke="#E7000B"
+                        stroke-width="1.33333"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        d="M5.33337 4.00004V2.66671C5.33337 2.00004 6.00004 1.33337 6.66671 1.33337H9.33337C10 1.33337 10.6667 2.00004 10.6667 2.66671V4.00004"
+                        stroke="#E7000B"
+                        stroke-width="1.33333"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        d="M6.66663 7.33337V11.3334"
+                        stroke="#E7000B"
+                        stroke-width="1.33333"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        d="M9.33337 7.33337V11.3334"
+                        stroke="#E7000B"
+                        stroke-width="1.33333"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </g>
+                    <defs>
+                      <clipPath id="clip0_9_504">
+                        <rect width="16" height="16" fill="white" />
+                      </clipPath>
+                    </defs>
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div
+            data-id="853012"
+            data-name="Bàn phím cơ AKKO 3098B Doll Bàn phím cơ AKKO 3098B Doll"
+            data-category="Inactive"
+            data-price="1008500"
+            data-quantity="0"
+            data-status="inactive"
+            class="item divde-y grid grid-cols-1 items-center gap-2 border-b border-gray-200 px-6 py-4 text-sm last:border-b-0 lg:grid-cols-[2.5fr_1fr_1.3fr_1.5fr_0.8fr_1.2fr_1.2fr] lg:gap-4"
           >
             <div
               class="flex min-w-0 items-center justify-between border-b border-gray-100 py-2 font-medium lg:border-none lg:py-0"
@@ -898,7 +1081,7 @@
             <div
               class="flex justify-between border-b border-gray-100 py-2 tabular-nums before:font-bold before:text-slate-400 before:content-['PRICE:'] lg:border-none lg:py-0 lg:text-right before:lg:hidden"
             >
-              100.850.000đ
+              1.008.500đ
             </div>
 
             <!-- Quantity -->
@@ -924,6 +1107,8 @@
             >
               <div class="flex gap-2">
                 <button
+                  onclick="openEditModal(this)"
+                  id="edit-modal"
                   class="cursor-pointer p-2 hover:opacity-60"
                   type="button"
                 >
@@ -958,6 +1143,7 @@
                   </svg>
                 </button>
                 <button
+                  onclick="openDeleteModal(this)"
                   class="cursor-pointer p-2 hover:opacity-60"
                   type="button"
                 >
@@ -1016,265 +1202,285 @@
             </div>
           </div>
         </div>
-
-        <!-- Editor product modal -->
-        <div
-          class="fixed inset-0 z-10 flex hidden w-screen items-center justify-center bg-[#00000073] p-4"
-        >
-          <div
-            class="w-[90vw] overflow-y-auto rounded-2xl bg-white shadow-2xl md:w-lg lg:w-xl xl:w-2xl"
-          >
-            <div class="px-6 pt-6">
-              <div class="flex items-center justify-between">
-                <div class="">
-                  <h2 class="text-2xl font-bold text-[#101828]">
-                    Edit Product
-                  </h2>
-                  <p>Update product details</p>
-                </div>
-                <button type="button" class="p-2">
-                  <svg
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M18 6L6 18"
-                      stroke="#4A5565"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    />
-                    <path
-                      d="M6 6L18 18"
-                      stroke="#4A5565"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    />
-                  </svg>
-                </button>
-              </div>
-            </div>
-            <div class="my-6 h-0.5 bg-[#E5E7EB]"></div>
-            <form
-              method="post"
-              id="edit-form"
-              class="flex flex-col gap-6 px-6 pb-6"
-            >
-              <div class="flex flex-col gap-2">
-                <label for="product_name">Product Name *</label>
-                <div class="rounded-2xl border border-gray-200">
-                  <input
-                    id="product_name"
-                    name="name"
-                    type="text"
-                    class="text-neutral-95 size-full rounded-2xl px-4 py-3 focus:outline-blue-600"
-                  />
-                </div>
-              </div>
-              <div class="flex flex-col gap-2">
-                <label for="product_id">ID *</label>
-                <div class="rounded-2xl border border-gray-200">
-                  <input
-                    id="product_id"
-                    name="id"
-                    type="text"
-                    class="text-neutral-95 size-full rounded-2xl px-4 py-3 focus:outline-blue-600"
-                  />
-                </div>
-              </div>
-              <div class="flex gap-4">
-                <div>
-                  <label for="product_price">Price ($) *</label>
-                  <div class="mt-2 rounded-2xl border border-gray-200">
-                    <input
-                      id="product_price"
-                      name="price"
-                      type="number"
-                      class="text-neutral-95 size-full rounded-2xl px-4 py-3 focus:outline-blue-600"
-                    />
-                  </div>
-                </div>
-                <div>
-                  <label for="product_quantity">Stock *</label>
-                  <div class="mt-2 rounded-2xl border border-gray-200">
-                    <input
-                      id="product_quantity"
-                      name="quantity"
-                      type="number"
-                      class="text-neutral-95 size-full rounded-2xl px-4 py-3 focus:outline-blue-600"
-                    />
-                  </div>
-                </div>
-              </div>
-              <div class="flex flex-col gap-2">
-                <label for="product_category">Category *</label>
-                <div
-                  class="flex items-center justify-between rounded-2xl border border-gray-200"
-                >
-                  <input
-                    value="Electronics"
-                    id="product_category"
-                    name="category"
-                    type="button"
-                    class="text-neutral-95 size-full rounded-2xl px-4 py-3 text-left focus:outline-blue-600"
-                  />
-                  <div class="px-3">
-                    <svg
-                      width="10"
-                      height="6"
-                      viewBox="0 0 10 6"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M1 1L5 5L9 1"
-                        stroke="#0A0A0A"
-                        stroke-width="1.5"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      />
-                    </svg>
-                  </div>
-                </div>
-              </div>
-              <div class="flex flex-col gap-2">
-                <label for="">Status</label>
-                <div class="flex items-center gap-4">
-                  <div class="flex items-center gap-2">
-                    <input
-                      checked
-                      value="active"
-                      id="product_active"
-                      name="status"
-                      type="radio"
-                    />
-                    <label for="product_active">Active</label>
-                  </div>
-                  <div class="flex items-center gap-2">
-                    <input
-                      id="product_inactive"
-                      name="status"
-                      value="inactive"
-                      type="radio"
-                    />
-                    <label for="product_inactive">Inactive</label>
-                  </div>
-                </div>
-              </div>
-              <div class="flex flex-col gap-2">
-                <label for="product_id">Image URL</label>
-                <div class="rounded-2xl border border-gray-200">
-                  <input
-                    id="product_img"
-                    name="product_img"
-                    type="text"
-                    class="text-neutral-95 size-full rounded-2xl px-4 py-3 focus:outline-blue-600"
-                  />
-                </div>
-              </div>
-            </form>
-            <div
-              class="flex items-center justify-end gap-1 rounded-br-2xl rounded-bl-2xl bg-[#F9FAFB] px-3 py-3 sm:gap-3 sm:px-6 sm:py-6"
-            >
-              <button
-                type="button"
-                class="cursor-pointer rounded-xl bg-white px-6 py-3 outline outline-gray-200"
-              >
-                <span class="text-center font-medium text-gray-700"
-                  >Cancel</span
-                >
-              </button>
-              <button
-                form="edit-form"
-                type="submit"
-                class="cursor-pointer rounded-xl bg-linear-to-r from-blue-600 to-purple-600 px-6 py-3 shadow-lg"
-              >
-                <span class="text-center font-medium text-white">
-                  Update Product
-                </span>
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <!-- Confirm to delete modal -->
-        <div
-          id="delete-modal"
-          class="fixed inset-0 z-10 flex hidden w-screen items-center justify-center bg-[#00000073] p-4"
-        >
-          <div
-            class="w-[90vw] overflow-y-auto rounded-2xl bg-white shadow-2xl md:w-lg"
-          >
-            <div class="relative p-6">
-              <div class="flex items-center gap-4">
-                <div
-                  class="flex items-center justify-center rounded-full bg-red-100 p-3"
-                >
-                  <svg
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M21.7299 18L13.7299 3.99998C13.5555 3.69218 13.3025 3.43617 12.9969 3.25805C12.6912 3.07993 12.3437 2.98608 11.9899 2.98608C11.6361 2.98608 11.2887 3.07993 10.983 3.25805C10.6773 3.43617 10.4244 3.69218 10.2499 3.99998L2.24993 18C2.07361 18.3053 1.98116 18.6519 1.98194 19.0045C1.98272 19.3571 2.07671 19.7032 2.25438 20.0078C2.43204 20.3124 2.68708 20.5646 2.99362 20.7388C3.30017 20.9131 3.64734 21.0032 3.99993 21H19.9999C20.3508 20.9996 20.6955 20.9069 20.9992 20.7313C21.303 20.5556 21.5551 20.3031 21.7304 19.9991C21.9057 19.6951 21.998 19.3504 21.9979 18.9995C21.9978 18.6486 21.9054 18.3039 21.7299 18Z"
-                      stroke="#E7000B"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    />
-                    <path
-                      d="M12 9V13"
-                      stroke="#E7000B"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    />
-                    <path
-                      d="M12 17H12.01"
-                      stroke="#E7000B"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    />
-                  </svg>
-                </div>
-                <div>
-                  <h2 class="text-2xl font-bold text-[#101828]">
-                    Delete Product
-                  </h2>
-                </div>
-              </div>
-              <p class="mt-2">
-                Are you sure you want to delete. This action cannot be undone.
-              </p>
-            </div>
-            <div
-              class="flex items-center justify-end gap-3 rounded-br-2xl rounded-bl-2xl bg-[#F9FAFB] px-6 py-3"
-            >
-              <button
-                type="button"
-                class="cursor-pointer rounded-xl bg-white px-6 py-3 outline outline-gray-200"
-              >
-                <div class="text-center font-medium text-gray-700">Cancel</div>
-              </button>
-              <button
-                form="add-form"
-                type="submit"
-                class="cursor-pointer rounded-xl bg-red-600 px-6 py-3 shadow-lg"
-              >
-                <span class="text-center font-medium text-white"> Delete </span>
-              </button>
-            </div>
-          </div>
-        </div>
       </div>
     </main>
+
+    <!-- Edit product modal -->
+    <div
+      id="editModal"
+      class="modal-overlay fixed inset-0 z-50 flex hidden w-screen items-center justify-center bg-[#00000073] p-4"
+    >
+      <div
+        class="flex max-h-[92vh] w-[90vw] flex-col overflow-hidden rounded-2xl bg-white shadow-2xl md:w-lg lg:w-xl xl:w-2xl"
+      >
+        <div class="px-6 pt-6">
+          <div class="flex items-center justify-between">
+            <div>
+              <h2 class="text-2xl font-bold text-[#101828]">Edit Product</h2>
+              <p class="text-sm text-gray-500">Update product details</p>
+            </div>
+            <button
+              onclick="closeModal('editModal')"
+              type="button"
+              class="cursor-pointer rounded-lg p-2 text-gray-500 transition hover:bg-gray-100"
+            >
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M18 6L6 18M6 6L18 18"
+                  stroke="#4A5565"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="my-4 h-[1px] bg-[#E5E7EB]"></div>
+
+        <form
+          method="POST"
+          action="/products/update"
+          id="edit-form"
+          class="flex flex-1 flex-col gap-4 overflow-y-auto px-6 pb-4"
+        >
+          <input type="hidden" name="original_id" id="edit_original_id" />
+
+          <div class="flex flex-col gap-1.5">
+            <label
+              for="edit_product_name"
+              class="text-sm font-semibold text-gray-800"
+              >Product Name *</label
+            >
+            <div
+              class="rounded-xl border border-gray-200 transition focus-within:border-blue-600 focus-within:ring-2 focus-within:ring-blue-100"
+            >
+              <input
+                id="edit_product_name"
+                name="name"
+                type="text"
+                required
+                class="size-full rounded-xl px-4 py-2.5 text-sm outline-none"
+              />
+            </div>
+          </div>
+
+          <div class="flex flex-col gap-1.5">
+            <label
+              for="edit_product_id"
+              class="text-sm font-semibold text-gray-800"
+              >ID *</label
+            >
+            <div
+              class="rounded-xl border border-gray-200 transition focus-within:border-blue-600 focus-within:ring-2 focus-within:ring-blue-100"
+            >
+              <input
+                id="edit_product_id"
+                name="id"
+                type="text"
+                required
+                class="size-full rounded-xl px-4 py-2.5 text-sm outline-none"
+              />
+            </div>
+          </div>
+
+          <div class="flex flex-col gap-4 sm:flex-row">
+            <div class="flex flex-1 flex-col gap-1.5">
+              <label
+                for="edit_product_price"
+                class="text-sm font-semibold text-gray-800"
+                >Price ($) *</label
+              >
+              <div
+                class="rounded-xl border border-gray-200 transition focus-within:border-blue-600 focus-within:ring-2 focus-within:ring-blue-100"
+              >
+                <input
+                  id="edit_product_price"
+                  name="price"
+                  type="number"
+                  required
+                  class="size-full rounded-xl px-4 py-2.5 text-sm outline-none"
+                />
+              </div>
+            </div>
+            <div class="flex flex-1 flex-col gap-1.5">
+              <label
+                for="edit_product_quantity"
+                class="text-sm font-semibold text-gray-800"
+                >Stock *</label
+              >
+              <div
+                class="rounded-xl border border-gray-200 transition focus-within:border-blue-600 focus-within:ring-2 focus-within:ring-blue-100"
+              >
+                <input
+                  id="edit_product_quantity"
+                  name="quantity"
+                  type="number"
+                  required
+                  class="size-full rounded-xl px-4 py-2.5 text-sm outline-none"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div class="flex flex-col gap-1.5">
+            <label
+              for="edit_product_category"
+              class="text-sm font-semibold text-gray-800"
+              >Category *</label
+            >
+            <div
+              class="rounded-xl border border-gray-200 transition focus-within:border-blue-600 focus-within:ring-2 focus-within:ring-blue-100"
+            >
+              <select
+                id="edit_product_category"
+                name="category"
+                required
+                class="size-full cursor-pointer rounded-xl bg-transparent px-4 py-2.5 text-sm outline-none"
+              >
+                <option value="Electronics">Electronics</option>
+                <option value="Clothing">Clothing</option>
+                <option value="Accessories">Accessories</option>
+                <option value="Footwear">Footwear</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="flex flex-col gap-1.5">
+            <label class="text-sm font-semibold text-gray-800">Status</label>
+            <div class="flex items-center gap-4 py-1.5">
+              <label
+                class="flex cursor-pointer items-center gap-1.5 text-sm text-gray-700"
+              >
+                <input
+                  type="radio"
+                  name="status"
+                  value="active"
+                  id="edit_status_active"
+                  class="h-4 w-4 cursor-pointer text-blue-600"
+                />
+                <span>Active</span>
+              </label>
+              <label
+                class="flex cursor-pointer items-center gap-1.5 text-sm text-gray-700"
+              >
+                <input
+                  type="radio"
+                  name="status"
+                  value="inactive"
+                  id="edit_status_inactive"
+                  class="h-4 w-4 cursor-pointer text-blue-600"
+                />
+                <span>Inactive</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="flex flex-col gap-1.5">
+            <label
+              for="edit_product_img"
+              class="text-sm font-semibold text-gray-800"
+              >Image URL</label
+            >
+            <div
+              class="rounded-xl border border-gray-200 transition focus-within:border-blue-600 focus-within:ring-2 focus-within:ring-blue-100"
+            >
+              <input
+                id="edit_product_img"
+                name="image_url"
+                type="text"
+                class="size-full rounded-xl px-4 py-2.5 text-sm outline-none"
+              />
+            </div>
+          </div>
+        </form>
+
+        <div
+          class="flex items-center justify-end gap-3 rounded-b-2xl border-t border-gray-100 bg-[#F9FAFB] px-6 py-4"
+        >
+          <button
+            onclick="closeModal('editModal')"
+            type="button"
+            class="cursor-pointer rounded-xl border border-gray-200 bg-white px-6 py-2.5 text-sm font-medium text-gray-700 transition hover:bg-gray-50"
+          >
+            Cancel
+          </button>
+          <button
+            form="edit-form"
+            type="submit"
+            class="cursor-pointer rounded-xl bg-linear-to-r from-blue-600 to-purple-600 px-6 py-2.5 text-sm font-medium text-white shadow-md transition hover:opacity-95"
+          >
+            Update
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Delete modal -->
+    <div
+      id="deleteModal"
+      class="modal-overlay fixed inset-0 z-50 flex hidden w-screen items-center justify-center bg-[#00000073] p-4"
+    >
+      <div
+        class="w-full max-w-md overflow-hidden rounded-2xl bg-white p-6 shadow-2xl"
+      >
+        <div class="flex gap-3">
+          <div
+            class="flex h-14 w-14 items-center justify-center rounded-full bg-red-100"
+          >
+            <svg
+              class="h-8 w-8 text-red-600"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
+              />
+            </svg>
+          </div>
+          <h3 class="mt-4 text-xl font-bold text-gray-900">Delete Product</h3>
+        </div>
+        <p class="mt-2 text-sm text-gray-500">
+          Are you sure you want to delete
+          <span id="delete_product_name" class="font-bold text-gray-800"></span
+          >? This action cannot be undone.
+        </p>
+
+        <form
+          id="delete-form"
+          method="POST"
+          action="/products/delete"
+          class="mt-6 flex justify-center gap-3"
+        >
+          <input type="hidden" name="id" id="delete_product_id" />
+
+          <button
+            type="button"
+            onclick="closeModal('deleteModal')"
+            class="w-full cursor-pointer rounded-xl border border-gray-200 bg-white px-6 py-2.5 text-sm font-medium text-gray-700 transition hover:bg-gray-50"
+          >
+            Cancel
+          </button>
+          <button
+            type="submit"
+            class="w-full cursor-pointer rounded-xl bg-red-600 px-6 py-2.5 text-sm font-medium text-white shadow-md transition hover:bg-red-700"
+          >
+            Delete
+          </button>
+        </form>
+      </div>
+    </div>
 
     <script src="../src/js/modal.js"></script>
     <script src="../src/js/add_product.js"></script>

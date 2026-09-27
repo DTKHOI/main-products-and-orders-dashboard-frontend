@@ -558,14 +558,14 @@
 
               <div class="my-4 h-[1px] bg-[#E5E7EB]"></div>
 
-              <!-- Form điền thông tin nhân viên -->
+              <!-- Form detail -->
               <form
                 method="POST"
                 action="/staff/create"
                 id="staff-form"
                 class="flex flex-1 flex-col gap-4 overflow-y-auto px-6 pb-4"
               >
-                <!-- Hàng 1: Họ tên & Mã NV -->
+                <!-- Full Name & Staff ID -->
                 <div class="flex flex-col gap-4 sm:flex-row">
                   <div class="flex flex-1 flex-col gap-1.5">
                     <label
@@ -612,7 +612,7 @@
                   </div>
                 </div>
 
-                <!-- Hàng 2: Email & Số điện thoại -->
+                <!-- Email & Phone Number -->
                 <div class="flex flex-col gap-4 sm:flex-row">
                   <div class="flex flex-1 flex-col gap-1.5">
                     <label
@@ -659,7 +659,7 @@
                   </div>
                 </div>
 
-                <!-- Hàng 3: Mật khẩu đăng nhập -->
+                <!-- Password -->
                 <div class="flex flex-col gap-1.5">
                   <label
                     for="staff_password"
@@ -684,7 +684,7 @@
                   </span>
                 </div>
 
-                <!-- Hàng 4: Địa chỉ -->
+                <!-- Address -->
                 <div class="flex flex-col gap-1.5">
                   <label
                     for="staff_address"
@@ -704,7 +704,7 @@
                   </div>
                 </div>
 
-                <!-- Hàng 5: Giới tính & Ảnh đại diện -->
+                <!-- Gender & AVT -->
                 <div
                   class="flex flex-col items-start gap-4 sm:flex-row sm:items-center"
                 >
@@ -762,7 +762,7 @@
                 </div>
               </form>
 
-              <!-- Footer Actions -->
+              <!-- Actions -->
               <div
                 class="flex items-center justify-end gap-3 rounded-b-2xl border-t border-gray-100 bg-[#F9FAFB] px-6 py-4"
               >
@@ -840,38 +840,26 @@
                 stroke-linejoin="round"
               />
             </svg>
-            <span class="font-medium">All Products</span>
+            <span class="font-medium">Filter</span>
 
             <!-- Product filter modal -->
             <div
-              class="invisible absolute top-9 left-0 z-100 size-fit w-full pt-5 opacity-0 group-hover:visible group-hover:opacity-100 lg:right-17 lg:left-[inherit]"
+              class="invisible absolute top-9 z-100 size-fit w-fit pt-5 opacity-0 group-hover:visible group-hover:opacity-100 lg:right-0 lg:left-[inherit]"
             >
               <div
-                class="flex h-48 w-56 flex-col overflow-hidden rounded-2xl bg-white shadow-lg outline outline-offset-[-0.80px] outline-gray-200"
+                class="flex w-56 flex-col overflow-hidden rounded-2xl bg-white shadow-lg outline outline-offset-[-0.80px] outline-gray-200"
               >
                 <button
                   id="all-products"
                   class="cursor-pointer self-stretch px-4 py-3 text-left text-base font-medium hover:bg-blue-50 hover:text-blue-600"
                 >
-                  All Products
+                  Female
                 </button>
                 <button
                   id="all-products"
                   class="cursor-pointer self-stretch px-4 py-3 text-left text-base font-medium hover:bg-blue-50 hover:text-blue-600"
                 >
-                  Active
-                </button>
-                <button
-                  id="all-products"
-                  class="cursor-pointer self-stretch px-4 py-3 text-left text-base font-medium hover:bg-blue-50 hover:text-blue-600"
-                >
-                  Inactive
-                </button>
-                <button
-                  id="all-products"
-                  class="cursor-pointer self-stretch px-4 py-3 text-left text-base font-medium hover:bg-blue-50 hover:text-blue-600"
-                >
-                  Low Stock
+                  Male
                 </button>
               </div>
             </div>
@@ -896,7 +884,14 @@
 
           <!-- Dòng dữ liệu 1 -->
           <div
-            class="divde-y grid grid-cols-1 items-center gap-2 border-b border-gray-200 px-6 py-4 text-sm last:border-b-0 lg:grid-cols-[0.9fr_1.5fr_2.5fr_1.5fr_0.8fr_1.2fr_1.2fr] lg:gap-4"
+            data-staff-id="853012"
+            data-name="Nguyễn Lưu Triệu Quang"
+            data-address="694/39 Nguyễn Xiển, Long Bình, TP.HCM"
+            data-email="khoiduongtuan25@gmail.com"
+            data-phone="0987654321"
+            data-gender="female"
+            data-avatar=""
+            class="item divde-y grid grid-cols-1 items-center gap-2 border-b border-gray-200 px-6 py-4 text-sm last:border-b-0 lg:grid-cols-[0.9fr_1.5fr_2.5fr_1.5fr_0.8fr_1.2fr_1.2fr] lg:gap-4"
           >
             <!-- STAFF ID -->
             <div
@@ -976,6 +971,7 @@
             >
               <div class="flex">
                 <button
+                  onclick="openViewStaffModal(this)"
                   class="cursor-pointer p-2 hover:opacity-60"
                   type="button"
                 >
@@ -1010,6 +1006,7 @@
                   </svg>
                 </button>
                 <button
+                  onclick="openEditStaffModal(this)"
                   class="cursor-pointer p-2 hover:opacity-60"
                   type="button"
                 >
@@ -1044,6 +1041,7 @@
                   </svg>
                 </button>
                 <button
+                  onclick="openDeleteStaffModal(this)"
                   class="cursor-pointer p-2 hover:opacity-60"
                   type="button"
                 >
@@ -1102,265 +1100,359 @@
             </div>
           </div>
         </div>
+      </div>
+    </main>
 
-        <!-- Editor product modal -->
+    <!-- VIEW STAFF -->
+    <div
+      id="viewStaffModal"
+      class="modal-overlay fixed inset-0 z-50 flex hidden w-screen items-center justify-center bg-[#00000073] p-4"
+    >
+      <div
+        class="flex w-[90vw] max-w-md flex-col overflow-hidden rounded-2xl bg-white shadow-2xl"
+      >
         <div
-          class="fixed inset-0 z-10 flex hidden w-screen items-center justify-center bg-[#00000073] p-4"
+          class="flex items-center justify-between border-b border-gray-100 px-6 pt-6 pb-4"
         >
-          <div
-            class="w-[90vw] overflow-y-auto rounded-2xl bg-white shadow-2xl md:w-lg lg:w-xl xl:w-2xl"
+          <h2 class="text-xl font-bold text-[#101828]">Staff Details</h2>
+          <button
+            onclick="closeModal('viewStaffModal')"
+            class="cursor-pointer rounded-lg p-2 text-gray-400 transition hover:bg-gray-100 hover:text-gray-600"
           >
-            <div class="px-6 pt-6">
-              <div class="flex items-center justify-between">
-                <div class="">
-                  <h2 class="text-2xl font-bold text-[#101828]">
-                    Edit Product
-                  </h2>
-                  <p>Update product details</p>
-                </div>
-                <button type="button" class="p-2">
-                  <svg
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M18 6L6 18"
-                      stroke="#4A5565"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    />
-                    <path
-                      d="M6 6L18 18"
-                      stroke="#4A5565"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    />
-                  </svg>
-                </button>
-              </div>
-            </div>
-            <div class="my-6 h-0.5 bg-[#E5E7EB]"></div>
-            <form
-              method="post"
-              id="edit-form"
-              class="flex flex-col gap-6 px-6 pb-6"
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
             >
-              <div class="flex flex-col gap-2">
-                <label for="product_name">Product Name *</label>
-                <div class="rounded-2xl border border-gray-200">
-                  <input
-                    id="product_name"
-                    name="name"
-                    type="text"
-                    class="text-neutral-95 size-full rounded-2xl px-4 py-3 focus:outline-blue-600"
-                  />
-                </div>
-              </div>
-              <div class="flex flex-col gap-2">
-                <label for="product_id">SKU *</label>
-                <div class="rounded-2xl border border-gray-200">
-                  <input
-                    id="product_id"
-                    name="id"
-                    type="text"
-                    class="text-neutral-95 size-full rounded-2xl px-4 py-3 focus:outline-blue-600"
-                  />
-                </div>
-              </div>
-              <div class="flex gap-4">
-                <div>
-                  <label for="product_price">Price ($) *</label>
-                  <div class="mt-2 rounded-2xl border border-gray-200">
-                    <input
-                      id="product_price"
-                      name="price"
-                      type="number"
-                      class="text-neutral-95 size-full rounded-2xl px-4 py-3 focus:outline-blue-600"
-                    />
-                  </div>
-                </div>
-                <div>
-                  <label for="product_quantity">Stock *</label>
-                  <div class="mt-2 rounded-2xl border border-gray-200">
-                    <input
-                      id="product_quantity"
-                      name="quantity"
-                      type="number"
-                      class="text-neutral-95 size-full rounded-2xl px-4 py-3 focus:outline-blue-600"
-                    />
-                  </div>
-                </div>
-              </div>
-              <div class="flex flex-col gap-2">
-                <label for="product_category">Category *</label>
-                <div
-                  class="flex items-center justify-between rounded-2xl border border-gray-200"
-                >
-                  <input
-                    value="Electronics"
-                    id="product_category"
-                    name="category"
-                    type="button"
-                    class="text-neutral-95 size-full rounded-2xl px-4 py-3 text-left focus:outline-blue-600"
-                  />
-                  <div class="px-3">
-                    <svg
-                      width="10"
-                      height="6"
-                      viewBox="0 0 10 6"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M1 1L5 5L9 1"
-                        stroke="#0A0A0A"
-                        stroke-width="1.5"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      />
-                    </svg>
-                  </div>
-                </div>
-              </div>
-              <div class="flex flex-col gap-2">
-                <label for="">Status</label>
-                <div class="flex items-center gap-4">
-                  <div class="flex items-center gap-2">
-                    <input
-                      checked
-                      value="active"
-                      id="product_active"
-                      name="status"
-                      type="radio"
-                    />
-                    <label for="product_active">Active</label>
-                  </div>
-                  <div class="flex items-center gap-2">
-                    <input
-                      id="product_inactive"
-                      name="status"
-                      value="inactive"
-                      type="radio"
-                    />
-                    <label for="product_inactive">Inactive</label>
-                  </div>
-                </div>
-              </div>
-              <div class="flex flex-col gap-2">
-                <label for="product_id">Image URL</label>
-                <div class="rounded-2xl border border-gray-200">
-                  <input
-                    id="product_img"
-                    name="product_img"
-                    type="text"
-                    class="text-neutral-95 size-full rounded-2xl px-4 py-3 focus:outline-blue-600"
-                  />
-                </div>
-              </div>
-            </form>
-            <div
-              class="flex items-center justify-end gap-1 rounded-br-2xl rounded-bl-2xl bg-[#F9FAFB] px-3 py-3 sm:gap-3 sm:px-6 sm:py-6"
-            >
-              <button
-                type="button"
-                class="cursor-pointer rounded-xl bg-white px-6 py-3 outline outline-gray-200"
-              >
-                <span class="text-center font-medium text-gray-700"
-                  >Cancel</span
-                >
-              </button>
-              <button
-                form="edit-form"
-                type="submit"
-                class="cursor-pointer rounded-xl bg-linear-to-r from-blue-600 to-purple-600 px-6 py-3 shadow-lg"
-              >
-                <span class="text-center font-medium text-white">
-                  Update Product
-                </span>
-              </button>
-            </div>
-          </div>
+              <path d="M18 6L6 18M6 6L18 18" />
+            </svg>
+          </button>
         </div>
 
-        <!-- Confirm to delete modal -->
-        <div
-          id="delete-modal"
-          class="fixed inset-0 z-10 flex hidden w-screen items-center justify-center bg-[#00000073] p-4"
-        >
+        <div class="flex flex-col items-center gap-4 p-6">
+          <!-- avt -->
           <div
-            class="w-[90vw] overflow-y-auto rounded-2xl bg-white shadow-2xl md:w-lg"
+            id="view_staff_avatar_container"
+            class="flex size-24 shrink-0 items-center justify-center overflow-hidden rounded-full border-4 border-gray-50 bg-gray-100 shadow-sm"
           >
-            <div class="relative p-6">
-              <div class="flex items-center gap-4">
-                <div
-                  class="flex items-center justify-center rounded-full bg-red-100 p-3"
-                >
-                  <svg
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M21.7299 18L13.7299 3.99998C13.5555 3.69218 13.3025 3.43617 12.9969 3.25805C12.6912 3.07993 12.3437 2.98608 11.9899 2.98608C11.6361 2.98608 11.2887 3.07993 10.983 3.25805C10.6773 3.43617 10.4244 3.69218 10.2499 3.99998L2.24993 18C2.07361 18.3053 1.98116 18.6519 1.98194 19.0045C1.98272 19.3571 2.07671 19.7032 2.25438 20.0078C2.43204 20.3124 2.68708 20.5646 2.99362 20.7388C3.30017 20.9131 3.64734 21.0032 3.99993 21H19.9999C20.3508 20.9996 20.6955 20.9069 20.9992 20.7313C21.303 20.5556 21.5551 20.3031 21.7304 19.9991C21.9057 19.6951 21.998 19.3504 21.9979 18.9995C21.9978 18.6486 21.9054 18.3039 21.7299 18Z"
-                      stroke="#E7000B"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    />
-                    <path
-                      d="M12 9V13"
-                      stroke="#E7000B"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    />
-                    <path
-                      d="M12 17H12.01"
-                      stroke="#E7000B"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    />
-                  </svg>
-                </div>
-                <div>
-                  <h2 class="text-2xl font-bold text-[#101828]">
-                    Delete Product
-                  </h2>
-                </div>
-              </div>
-              <p class="mt-2">
-                Are you sure you want to delete. This action cannot be undone.
-              </p>
+            <!-- JS sẽ chèn <img> hoặc icon trống vào đây -->
+          </div>
+
+          <div class="mt-2 w-full space-y-3">
+            <div class="flex justify-between border-b border-gray-50 pb-2">
+              <span class="text-sm font-medium text-gray-500">Staff ID</span>
+              <span
+                id="view_staff_id"
+                class="text-sm font-bold text-gray-900"
+              ></span>
             </div>
-            <div
-              class="flex items-center justify-end gap-3 rounded-br-2xl rounded-bl-2xl bg-[#F9FAFB] px-6 py-3"
-            >
-              <button
-                type="button"
-                class="cursor-pointer rounded-xl bg-white px-6 py-3 outline outline-gray-200"
-              >
-                <div class="text-center font-medium text-gray-700">Cancel</div>
-              </button>
-              <button
-                form="add-form"
-                type="submit"
-                class="cursor-pointer rounded-xl bg-red-600 px-6 py-3 shadow-lg"
-              >
-                <span class="text-center font-medium text-white"> Delete </span>
-              </button>
+            <div class="flex justify-between border-b border-gray-50 pb-2">
+              <span class="text-sm font-medium text-gray-500">Full Name</span>
+              <span
+                id="view_staff_name"
+                class="text-sm font-semibold text-gray-900"
+              ></span>
+            </div>
+            <div class="flex justify-between border-b border-gray-50 pb-2">
+              <span class="text-sm font-medium text-gray-500">Email</span>
+              <span id="view_staff_email" class="text-sm text-gray-800"></span>
+            </div>
+            <div class="flex justify-between border-b border-gray-50 pb-2">
+              <span class="text-sm font-medium text-gray-500">Phone</span>
+              <span
+                id="view_staff_phone"
+                class="text-sm text-gray-800 tabular-nums"
+              ></span>
+            </div>
+            <div class="flex justify-between border-b border-gray-50 pb-2">
+              <span class="text-sm font-medium text-gray-500">Gender</span>
+              <span
+                id="view_staff_gender"
+                class="text-sm text-gray-800 capitalize"
+              ></span>
+            </div>
+            <div class="flex flex-col gap-1 pt-1">
+              <span class="text-sm font-medium text-gray-500">Address</span>
+              <span
+                id="view_staff_address"
+                class="text-right text-sm text-gray-800"
+              ></span>
             </div>
           </div>
         </div>
       </div>
-    </main>
+    </div>
+
+    <!-- EDIT STAFF -->
+    <div
+      id="editStaffModal"
+      class="modal-overlay fixed inset-0 z-50 flex hidden w-screen items-center justify-center bg-[#00000073] p-4"
+    >
+      <div
+        class="flex max-h-[92vh] w-[90vw] flex-col overflow-hidden rounded-2xl bg-white shadow-2xl md:w-lg lg:w-xl xl:w-2xl"
+      >
+        <div class="px-6 pt-6">
+          <div class="flex items-center justify-between">
+            <div>
+              <h2 class="text-2xl font-bold text-[#101828]">Edit Staff</h2>
+              <p class="text-sm text-gray-500">Update staff account details</p>
+            </div>
+            <button
+              onclick="closeModal('editStaffModal')"
+              class="cursor-pointer rounded-lg p-2 text-gray-500 transition hover:bg-gray-100"
+            >
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M18 6L6 18M6 6L18 18" />
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="my-4 h-[1px] bg-[#E5E7EB]"></div>
+
+        <form
+          method="POST"
+          action="/staff/update"
+          id="edit-staff-form"
+          class="flex flex-1 flex-col gap-4 overflow-y-auto px-6 pb-4"
+        >
+          <input
+            type="hidden"
+            name="original_staff_id"
+            id="edit_original_staff_id"
+          />
+
+          <div class="flex flex-col gap-4 sm:flex-row">
+            <div class="flex flex-1 flex-col gap-1.5">
+              <label class="text-sm font-semibold text-gray-800"
+                >Full Name *</label
+              >
+              <div
+                class="rounded-xl border border-gray-200 transition focus-within:border-blue-600 focus-within:ring-2"
+              >
+                <input
+                  id="edit_staff_name"
+                  name="name"
+                  type="text"
+                  required
+                  class="size-full rounded-xl px-4 py-2.5 text-sm outline-none"
+                />
+              </div>
+            </div>
+            <div class="flex flex-1 flex-col gap-1.5">
+              <label class="text-sm font-semibold text-gray-800"
+                >Staff ID *</label
+              >
+              <div
+                class="rounded-xl border border-gray-200 transition focus-within:border-blue-600 focus-within:ring-2"
+              >
+                <input
+                  id="edit_staff_id"
+                  name="staff_id"
+                  type="text"
+                  required
+                  class="size-full rounded-xl px-4 py-2.5 text-sm outline-none"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div class="flex flex-col gap-4 sm:flex-row">
+            <div class="flex flex-1 flex-col gap-1.5">
+              <label class="text-sm font-semibold text-gray-800">Email *</label>
+              <div
+                class="rounded-xl border border-gray-200 transition focus-within:border-blue-600 focus-within:ring-2"
+              >
+                <input
+                  id="edit_staff_email"
+                  name="email"
+                  type="email"
+                  required
+                  class="size-full rounded-xl px-4 py-2.5 text-sm outline-none"
+                />
+              </div>
+            </div>
+            <div class="flex flex-1 flex-col gap-1.5">
+              <label class="text-sm font-semibold text-gray-800">Phone *</label>
+              <div
+                class="rounded-xl border border-gray-200 transition focus-within:border-blue-600 focus-within:ring-2"
+              >
+                <input
+                  id="edit_staff_phone"
+                  name="phone"
+                  type="tel"
+                  required
+                  class="size-full rounded-xl px-4 py-2.5 text-sm outline-none"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div class="flex flex-col gap-1.5">
+            <label class="text-sm font-semibold text-gray-800">Password</label>
+            <div
+              class="rounded-xl border border-gray-200 transition focus-within:border-blue-600 focus-within:ring-2"
+            >
+              <input
+                id="edit_staff_password"
+                name="password"
+                type="password"
+                placeholder="Leave blank to keep current password"
+                class="size-full rounded-xl px-4 py-2.5 text-sm outline-none placeholder:text-gray-400"
+              />
+            </div>
+          </div>
+
+          <div class="flex flex-col gap-1.5">
+            <label class="text-sm font-semibold text-gray-800">Address</label>
+            <div
+              class="rounded-xl border border-gray-200 transition focus-within:border-blue-600 focus-within:ring-2"
+            >
+              <input
+                id="edit_staff_address"
+                name="address"
+                type="text"
+                class="size-full rounded-xl px-4 py-2.5 text-sm outline-none"
+              />
+            </div>
+          </div>
+
+          <div class="flex flex-col items-start gap-4 sm:flex-row">
+            <div class="flex w-32 shrink-0 flex-col gap-2">
+              <label class="text-sm font-semibold text-gray-800">Gender</label>
+              <div class="flex items-center gap-4 pt-1">
+                <label class="flex cursor-pointer items-center gap-1.5 text-sm"
+                  ><input
+                    type="radio"
+                    name="gender"
+                    value="male"
+                    id="edit_gender_male"
+                    class="h-4 w-4 cursor-pointer text-blue-600"
+                  />
+                  Male</label
+                >
+                <label class="flex cursor-pointer items-center gap-1.5 text-sm"
+                  ><input
+                    type="radio"
+                    name="gender"
+                    value="female"
+                    id="edit_gender_female"
+                    class="h-4 w-4 cursor-pointer text-blue-600"
+                  />
+                  Female</label
+                >
+              </div>
+            </div>
+            <div class="flex w-full flex-1 flex-col gap-1.5">
+              <label class="text-sm font-semibold text-gray-800"
+                >Avatar URL</label
+              >
+              <div
+                class="rounded-xl border border-gray-200 transition focus-within:border-blue-600 focus-within:ring-2"
+              >
+                <input
+                  id="edit_staff_avatar"
+                  name="avatar_url"
+                  type="text"
+                  class="size-full rounded-xl px-4 py-2.5 text-sm outline-none"
+                />
+              </div>
+            </div>
+          </div>
+        </form>
+
+        <div
+          class="flex items-center justify-end gap-3 rounded-b-2xl border-t border-gray-100 bg-[#F9FAFB] px-6 py-4"
+        >
+          <button
+            onclick="closeModal('editStaffModal')"
+            class="cursor-pointer rounded-xl border border-gray-200 bg-white px-6 py-2.5 text-sm font-medium transition hover:bg-gray-50"
+          >
+            Cancel
+          </button>
+          <button
+            form="edit-staff-form"
+            type="submit"
+            class="cursor-pointer rounded-xl bg-linear-to-r from-blue-600 to-purple-600 px-6 py-2.5 text-sm font-medium text-white shadow-md transition hover:opacity-95"
+          >
+            Update Account
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- DELETE STAFF -->
+    <div
+      id="deleteStaffModal"
+      class="modal-overlay fixed inset-0 z-50 flex hidden w-screen items-center justify-center bg-[#00000073] p-4"
+    >
+      <div
+        class="w-full max-w-md overflow-hidden rounded-2xl bg-white p-6 text-center shadow-2xl"
+      >
+        <div
+          class="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-red-100"
+        >
+          <svg
+            class="h-8 w-8 text-red-600"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
+            />
+          </svg>
+        </div>
+        <h3 class="mt-4 text-xl font-bold text-gray-900">
+          Delete Staff Account
+        </h3>
+        <p class="mt-2 text-sm text-gray-500">
+          Are you sure you want to delete
+          <span id="delete_staff_name" class="font-bold text-gray-800"></span>?
+          This action cannot be undone.
+        </p>
+
+        <form
+          id="delete-staff-form"
+          method="POST"
+          action="/staff/delete"
+          class="mt-6 flex justify-center gap-3"
+        >
+          <input type="hidden" name="id" id="delete_staff_id" />
+          <button
+            type="button"
+            onclick="closeModal('deleteStaffModal')"
+            class="w-full cursor-pointer rounded-xl border border-gray-200 bg-white px-6 py-2.5 text-sm font-medium transition hover:bg-gray-50"
+          >
+            Cancel
+          </button>
+          <button
+            type="submit"
+            class="w-full cursor-pointer rounded-xl bg-red-600 px-6 py-2.5 text-sm font-medium text-white shadow-md transition hover:bg-red-700"
+          >
+            Delete
+          </button>
+        </form>
+      </div>
+    </div>
+
     <script src="../src/js/modal.js"></script>
     <script src="../src/js/staff_form.js"></script>
     <script src="../src/js/mobile_menu.js"></script>
