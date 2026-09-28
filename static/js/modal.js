@@ -1,4 +1,4 @@
-// 1. Mở modal: gỡ bỏ class 'hidden'
+// Mở modal
 function openModal(modalId) {
   const modal = document.getElementById(modalId);
   if (modal) {
@@ -8,13 +8,18 @@ function openModal(modalId) {
   }
 }
 
-// 2. Đóng modal: thêm lại class 'hidden'
+// Đóng modal
 function closeModal(modalId) {
   const modal = document.getElementById(modalId);
   if (modal) {
     modal.classList.add("hidden");
-    // Mở lại cuộn trang
     document.body.classList.remove("overflow-hidden");
+
+    // Tự động xóa sạch dữ liệu nhập dở trong form khi đóng modal
+    const form = modal.querySelector("form");
+    if (form) {
+      form.reset();
+    }
   }
 }
 

@@ -4,10 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Staff</title>
-    <link rel="stylesheet" href="../src/css/input.css" />
-    <link rel="stylesheet" href="../src/css/output.css" />
+    <link rel="stylesheet" href="../static/css/input.css" />
+    <link rel="stylesheet" href="../static/css/output.css" />
 
-    <script src="../src/js/modal.js"></script>
+    <script src="../static/js/modal.js"></script>
   </head>
   <body class="bg-body h-full lg:grid lg:grid-cols-[auto_1fr]">
     <!-- Mobile Header -->
@@ -246,7 +246,7 @@
       </div>
     </aside>
 
-    <!-- aside -->
+    <!-- Desktop aside -->
     <div class="hidden min-h-screen lg:flex lg:w-22 xl:w-70">
       <aside
         class="fixed min-h-full flex-col border-r-2 border-r-gray-200 bg-white lg:flex lg:w-22 xl:w-70"
@@ -556,13 +556,13 @@
                 </div>
               </div>
 
-              <div class="my-4 h-[1px] bg-[#E5E7EB]"></div>
+              <div class="my-4 h-px bg-[#E5E7EB]"></div>
 
               <!-- Form detail -->
               <form
                 method="POST"
                 action="/staff/create"
-                id="staff-form"
+                id="create-staff-form"
                 class="flex flex-1 flex-col gap-4 overflow-y-auto px-6 pb-4"
               >
                 <!-- Full Name & Staff ID -->
@@ -842,7 +842,7 @@
             </svg>
             <span class="font-medium">Filter</span>
 
-            <!-- Product filter modal -->
+            <!-- filter modal -->
             <div
               class="invisible absolute top-9 z-100 size-fit w-fit pt-5 opacity-0 group-hover:visible group-hover:opacity-100 lg:right-0 lg:left-[inherit]"
             >
@@ -850,13 +850,15 @@
                 class="flex w-56 flex-col overflow-hidden rounded-2xl bg-white shadow-lg outline outline-offset-[-0.80px] outline-gray-200"
               >
                 <button
-                  id="all-products"
+                  value="female"
+                  id="female"
                   class="cursor-pointer self-stretch px-4 py-3 text-left text-base font-medium hover:bg-blue-50 hover:text-blue-600"
                 >
                   Female
                 </button>
                 <button
-                  id="all-products"
+                  id="male"
+                  value="male"
                   class="cursor-pointer self-stretch px-4 py-3 text-left text-base font-medium hover:bg-blue-50 hover:text-blue-600"
                 >
                   Male
@@ -1222,7 +1224,7 @@
           </div>
         </div>
 
-        <div class="my-4 h-[1px] bg-[#E5E7EB]"></div>
+        <div class="my-4 h-px bg-[#E5E7EB]"></div>
 
         <form
           method="POST"
@@ -1453,8 +1455,8 @@
       </div>
     </div>
 
-    <script src="../src/js/modal.js"></script>
-    <script src="../src/js/staff_form.js"></script>
-    <script src="../src/js/mobile_menu.js"></script>
+    <script src="../static/js/modal.js"></script>
+    <script src="../static/js/staff_form.js"></script>
+    <script src="../static/js/mobile_menu.js"></script>
   </body>
 </html>

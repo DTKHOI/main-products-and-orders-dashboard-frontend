@@ -24,7 +24,7 @@ function addItem() {
 
   const prodId = select.value;
   if (!prodId) {
-    alert("Vui lòng chọn một sản phẩm!");
+    alert("Please select a product!");
     return;
   }
 
